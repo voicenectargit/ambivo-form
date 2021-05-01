@@ -36,9 +36,7 @@
               "projects/ambivo-form/tsconfig.lib.json",
               "projects/ambivo-form/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -63,9 +61,7 @@
               "projects/ambivo-form-showcase/src/favicon.ico",
               "projects/ambivo-form-showcase/src/assets"
             ],
-            "styles": [
-              "projects/ambivo-form-showcase/src/styles.css"
-            ],
+            "styles": ["projects/ambivo-form-showcase/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -127,9 +123,7 @@
               "projects/ambivo-form-showcase/src/favicon.ico",
               "projects/ambivo-form-showcase/src/assets"
             ],
-            "styles": [
-              "projects/ambivo-form-showcase/src/styles.css"
-            ],
+            "styles": ["projects/ambivo-form-showcase/src/styles.css"],
             "scripts": []
           }
         },
@@ -141,9 +135,7 @@
               "projects/ambivo-form-showcase/tsconfig.spec.json",
               "projects/ambivo-form-showcase/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -159,6 +151,116 @@
           }
         }
       }
-    }},
+    },
+    "ambivo-form-element": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ambivo-form-element",
+      "sourceRoot": "projects/ambivo-form-element/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/ambivo-form-element",
+            "index": "projects/ambivo-form-element/src/index.html",
+            "main": "projects/ambivo-form-element/src/main.ts",
+            "polyfills": "projects/ambivo-form-element/src/polyfills.ts",
+            "tsConfig": "projects/ambivo-form-element/tsconfig.app.json",
+            "aot": true,
+            "assets": [],
+            "styles": [],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ambivo-form-element/src/environments/environment.ts",
+                  "with": "projects/ambivo-form-element/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "ambivo-form-element:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ambivo-form-element:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ambivo-form-element:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/ambivo-form-element/src/test.ts",
+            "polyfills": "projects/ambivo-form-element/src/polyfills.ts",
+            "tsConfig": "projects/ambivo-form-element/tsconfig.spec.json",
+            "karmaConfig": "projects/ambivo-form-element/karma.conf.js",
+            "assets": [
+              "projects/ambivo-form-element/src/favicon.ico",
+              "projects/ambivo-form-element/src/assets"
+            ],
+            "styles": ["projects/ambivo-form-element/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ambivo-form-element/tsconfig.app.json",
+              "projects/ambivo-form-element/tsconfig.spec.json",
+              "projects/ambivo-form-element/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ambivo-form-element/e2e/protractor.conf.js",
+            "devServerTarget": "ambivo-form-element:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ambivo-form-element:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "ambivo-form"
 }
+

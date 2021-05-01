@@ -18,6 +18,12 @@
     },
     {
       "path": "./projects/ambivo-form-showcase/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ambivo-form-element/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ambivo-form-element/tsconfig.spec.json"
     }
 ]
 }
