@@ -6,5 +6,18 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/ambivo-form/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ambivo-form/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ambivo-form-showcase/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ambivo-form-showcase/tsconfig.spec.json"
+    }
+]
 }
