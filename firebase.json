@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/ambivo-form-element",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
