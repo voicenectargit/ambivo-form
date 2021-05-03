@@ -1,16 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AmbivoFormService } from './ambivo-form.service';
+import { WidgetService } from './widget.service';
 
-describe('AmbivoFormService', () => {
-  let service: AmbivoFormService;
+describe('WidgetService', () => {
+  let service: WidgetService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AmbivoFormService);
+    service = TestBed.inject(WidgetService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 });
+

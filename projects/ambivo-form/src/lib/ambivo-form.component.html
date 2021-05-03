@@ -1,0 +1,45 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <ng-container *ngIf="widget.body as data">
+    <div class="ambivo-form" [style.width]="width" [style]="data.styling">
+      <!-- Header -->
+      <div class="ambivo-form--header" *ngIf="data.title as title">
+        <div class="ambivo-form--title">{{ title }}</div>
+        <div class="ambivo-form--subtitle" *ngIf="data.subtitle as subtitle">
+          {{ subtitle }}
+        </div>
+      </div>
+
+      <!-- Success message -->
+      <div
+        class="ambivo-form--message message-success"
+        *ngIf="isSuccess && data.message"
+      >
+        {{ data.message }}
+      </div>
+
+      <!-- Error message -->
+      <div class="ambivo-form--message message-error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Form -->
+      <form [formGroup]="form">
+        <formly-form
+          [form]="form"
+          [fields]="data.fields"
+          [model]="model"
+        ></formly-form>
+
+        <!-- Submit -->
+        <button
+          type="button"
+          class="ambivo-form--button"
+          (click)="submit(widget)"
+          [disabled]="!form.valid || isLoading"
+        >
+          {{ data.submit }}
+        </button>
+      </form>
+    </div>
+  </ng-container>
+</ng-container>

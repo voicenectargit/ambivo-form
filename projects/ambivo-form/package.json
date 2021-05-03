@@ -1,13 +1,9 @@
 {
-  "name": "ambivo-form",
+  "name": "@ambivo/ambivo-form",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^10.0.14",
     "@angular/core": "^10.0.14",
-    "@ngx-formly/core": "^5.10.18",
-    "@ngx-formly/bootstrap": "^5.10.18"
-  },
-  "devDependencies": {
     "@ngx-formly/core": "^5.10.18",
     "@ngx-formly/bootstrap": "^5.10.18"
   },

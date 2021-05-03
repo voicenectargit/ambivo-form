@@ -5,12 +5,10 @@ import { createCustomElement } from '@angular/elements';
 import {
   AmbivoFormModule,
   AmbivoFormComponent,
-} from '../../../ambivo-form/src/public-api';
+} from 'projects/ambivo-form/src/public-api';
 
 @NgModule({
   imports: [BrowserModule, AmbivoFormModule],
-  providers: [],
-  bootstrap: [],
 })
 export class AppModule {
   constructor(private injector: Injector) {}

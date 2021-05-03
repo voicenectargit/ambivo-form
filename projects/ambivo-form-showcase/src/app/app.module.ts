@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AmbivoFormModule } from '../../../ambivo-form/src/lib/ambivo-form.module';
+import { AmbivoFormModule } from 'projects/ambivo-form/src/lib/ambivo-form.module';
 
 @NgModule({
   declarations: [AppComponent],
