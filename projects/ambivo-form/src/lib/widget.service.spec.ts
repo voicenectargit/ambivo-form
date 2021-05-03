@@ -13,5 +13,11 @@ describe('WidgetService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-});
 
+  describe('getWidget():', () => {
+    it('should get widget', () => {});
+  });
+  describe('executeWidget():', () => {
+    it('should execute widget', () => {});
+  });
+});
