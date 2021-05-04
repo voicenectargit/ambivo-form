@@ -1,13 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-
 import { WidgetService } from './widget.service';
 
 describe('WidgetService', () => {
+  let httpClientSpy: { get: jasmine.Spy };
   let service: WidgetService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(WidgetService);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get', 'post']);
+    service = new WidgetService(httpClientSpy as any);
   });
 
   it('should be created', () => {

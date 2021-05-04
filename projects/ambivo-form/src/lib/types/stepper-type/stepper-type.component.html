@@ -1,0 +1,48 @@
+<!-- Progress bar -->
+<div *ngIf="field.fieldGroup[currentStep] as step">
+  <h2 class="ambivo-form--subtitle">{{ step.templateOptions.label }}</h2>
+  <div class="ambivo-form--progress">
+    <span [style.width]="((currentStep + 1) / length) * 100 + '%'"></span>
+  </div>
+</div>
+
+<!-- Steps -->
+<ng-container
+  *ngFor="let step of field.fieldGroup; let index = index; let last = last"
+>
+  <div class="ambivo-form--step" *ngIf="index === currentStep">
+    <!-- Step fields -->
+    <formly-field [field]="step"></formly-field>
+
+    <!-- Actions -->
+    <div class="ambivo-form--actions">
+      <button
+        type="button"
+        class="ambivo-form--button"
+        *ngIf="index !== 0"
+        (click)="prev()"
+      >
+        Back
+      </button>
+
+      <button
+        type="button"
+        class="ambivo-form--button"
+        *ngIf="!last"
+        (click)="next()"
+        [disabled]="!isValid(step)"
+      >
+        Next
+      </button>
+
+      <button
+        *ngIf="last"
+        class="ambivo-form--button"
+        [disabled]="!form.valid"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</ng-container>

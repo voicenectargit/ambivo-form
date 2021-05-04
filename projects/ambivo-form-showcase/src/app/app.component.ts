@@ -21,71 +21,95 @@ export class AppComponent {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim',
       fields: [
         {
-          key: 'input',
-          type: 'input',
-          templateOptions: {
-            label: 'Input',
-          },
-        },
-        {
-          key: 'textarea',
-          type: 'textarea',
-          templateOptions: {
-            label: 'Message',
-            rows: 5,
-          },
-        },
-        {
-          key: 'email',
-          type: 'email',
-          templateOptions: {
-            label: 'E-Mail',
-          },
-        },
-        {
-          key: 'phone',
-          type: 'phone',
-          templateOptions: {
-            label: 'Phone',
-          },
-        },
-        {
-          key: 'url',
-          type: 'url',
-          templateOptions: {
-            label: 'URL',
-          },
-        },
-        {
-          key: 'checkbox',
-          type: 'checkbox',
-          templateOptions: {
-            label: 'Checkbox',
-          },
-        },
-        {
-          key: 'radio',
-          type: 'radio',
-          templateOptions: {
-            label: 'Radio',
-            formCheck: 'inline',
-            options: [
-              { label: 'foo', value: 'foo' },
-              { label: 'bar', value: 'bar' },
-            ],
-          },
-        },
-        {
-          key: 'select',
-          type: 'select',
-          templateOptions: {
-            label: 'Select',
-            formCheck: 'inline',
-            options: [
-              { label: 'foo', value: 'foo' },
-              { label: 'bar', value: 'bar' },
-            ],
-          },
+          type: 'stepper',
+          fieldGroup: [
+            {
+              templateOptions: {
+                label: 'First step',
+                description: 'Hello world',
+              },
+              fieldGroup: [
+                {
+                  key: 'input',
+                  type: 'input',
+                  templateOptions: {
+                    label: 'Input',
+                    required: true,
+                  },
+                },
+                {
+                  key: 'textarea',
+                  type: 'textarea',
+                  templateOptions: {
+                    label: 'Message',
+                    rows: 5,
+                  },
+                },
+                {
+                  key: 'email',
+                  type: 'email',
+                  templateOptions: {
+                    label: 'E-Mail',
+                  },
+                },
+              ],
+            },
+            {
+              templateOptions: { label: 'Second step' },
+              fieldGroup: [
+                {
+                  key: 'phone',
+                  type: 'phone',
+                  templateOptions: {
+                    label: 'Phone',
+                  },
+                },
+                {
+                  key: 'url',
+                  type: 'url',
+                  templateOptions: {
+                    label: 'URL',
+                  },
+                },
+                {
+                  key: 'checkbox',
+                  type: 'checkbox',
+                  templateOptions: {
+                    label: 'Checkbox',
+                  },
+                },
+              ],
+            },
+            {
+              templateOptions: { label: 'Third step' },
+              fieldGroup: [
+                {
+                  key: 'radio',
+                  type: 'radio',
+                  templateOptions: {
+                    label: 'Radio',
+                    formCheck: 'inline',
+                    options: [
+                      { label: 'foo', value: 'foo' },
+                      { label: 'bar', value: 'bar' },
+                    ],
+                  },
+                },
+                {
+                  key: 'select',
+                  type: 'select',
+                  templateOptions: {
+                    label: 'Select',
+                    formCheck: 'inline',
+                    options: [
+                      { label: 'foo', value: 'foo' },
+                      { label: 'bar', value: 'bar' },
+                    ],
+                  },
+                },
+              ],
+            },
+          ],
         },
       ],
       styling: {},

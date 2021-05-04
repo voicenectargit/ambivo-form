@@ -1,0 +1,19 @@
+@import "../../../styles/variables";
+
+.ambivo-form--actions {
+  display: flex;
+  flex-direction: row;
+  > button:not(:last-child) {
+    margin-right: $button-spacing;
+  }
+}
+.ambivo-form--progress {
+  height: 4px;
+  background: #ddd;
+  span {
+    display: block;
+    height: 100%;
+    background: $success-color;
+    transition: width 0.3s ease;
+  }
+}

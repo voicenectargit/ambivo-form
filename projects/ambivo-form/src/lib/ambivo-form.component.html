@@ -9,36 +9,13 @@
         </div>
       </div>
 
-      <!-- Success message -->
-      <div
-        class="ambivo-form--message message-success"
-        *ngIf="isSuccess && data.message"
-      >
-        {{ data.message }}
-      </div>
-
-      <!-- Error message -->
-      <div class="ambivo-form--message message-error" *ngIf="errorMessage">
-        {{ errorMessage }}
-      </div>
-
       <!-- Form -->
-      <form [formGroup]="form">
+      <form [formGroup]="form" (ngSubmit)="submit()">
         <formly-form
           [form]="form"
           [fields]="data.fields"
           [model]="model"
         ></formly-form>
-
-        <!-- Submit -->
-        <button
-          type="button"
-          class="ambivo-form--button"
-          (click)="submit(widget)"
-          [disabled]="!form.valid || isLoading"
-        >
-          {{ data.submit }}
-        </button>
       </form>
     </div>
   </ng-container>

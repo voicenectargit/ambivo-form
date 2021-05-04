@@ -13,9 +13,10 @@ import {
 import { AmbivoFormComponent } from './ambivo-form.component';
 import { CustomEmailValidator } from './validators/email.validator';
 import { UrlValidator } from './validators/url.validator';
+import { StepperTypeComponent } from './types/stepper-type/stepper-type.component';
 
 @NgModule({
-  declarations: [AmbivoFormComponent],
+  declarations: [AmbivoFormComponent, StepperTypeComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -23,6 +24,10 @@ import { UrlValidator } from './validators/url.validator';
     FormsModule,
     FormlyModule.forRoot({
       types: [
+        {
+          name: 'stepper',
+          component: StepperTypeComponent,
+        },
         {
           name: 'phone',
           component: FormlyFieldInput,
