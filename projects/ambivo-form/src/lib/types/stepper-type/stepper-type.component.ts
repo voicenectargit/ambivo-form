@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'stepper-type',
   templateUrl: './stepper-type.component.html',
   styleUrls: ['./stepper-type.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StepperTypeComponent extends FieldType {
   currentStep = 0;

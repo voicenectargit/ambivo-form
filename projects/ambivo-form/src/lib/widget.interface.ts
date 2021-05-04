@@ -6,6 +6,7 @@ export interface WidgetInterface {
   type: string;
   description: string;
   body: {
+    multistep?: boolean;
     title?: string;
     subtitle?: string;
     submit: string;

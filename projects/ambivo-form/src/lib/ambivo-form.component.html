@@ -16,6 +16,17 @@
           [fields]="data.fields"
           [model]="model"
         ></formly-form>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="ambivo-form--button"
+          (click)="submit(widget)"
+          [disabled]="!form.valid || isLoading"
+          *ngIf="!data.multistep"
+        >
+          {{ data.submit }}
+        </button>
       </form>
     </div>
   </ng-container>

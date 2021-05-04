@@ -14,9 +14,14 @@ import { AmbivoFormComponent } from './ambivo-form.component';
 import { CustomEmailValidator } from './validators/email.validator';
 import { UrlValidator } from './validators/url.validator';
 import { StepperTypeComponent } from './types/stepper-type/stepper-type.component';
+import { InputTypeComponent } from './types/input-type/input-type.component';
+import { TextareaTypeComponent } from './types/textarea-type/textarea-type.component';
+import { CheckboxTypeComponent } from './types/checkbox-type/checkbox-type.component';
+import { RadioTypeComponent } from './types/radio-type/radio-type.component';
+import { SelectTypeComponent } from './types/select-type/select-type.component';
 
 @NgModule({
-  declarations: [AmbivoFormComponent, StepperTypeComponent],
+  declarations: [AmbivoFormComponent, StepperTypeComponent, InputTypeComponent, TextareaTypeComponent, CheckboxTypeComponent, RadioTypeComponent, SelectTypeComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
