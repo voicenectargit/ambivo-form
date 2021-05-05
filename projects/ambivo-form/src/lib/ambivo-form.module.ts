@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormlyModule } from '@ngx-formly/core';
@@ -18,11 +18,11 @@ import { StepperTypeComponent } from './types/stepper-type/stepper-type.componen
 @NgModule({
   declarations: [AmbivoFormComponent, StepperTypeComponent],
   imports: [
-    BrowserModule,
+    CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    FormlyModule.forRoot({
+    FormlyModule.forChild({
       types: [
         {
           name: 'stepper',
@@ -69,6 +69,7 @@ import { StepperTypeComponent } from './types/stepper-type/stepper-type.componen
         { name: 'required', message: 'This field is required' },
         { name: 'email', message: 'Please enter a valid Email' },
         { name: 'url', message: 'Please enter a valid URL' },
+        /*
         {
           name: 'min',
           message: (_, f) => `Minimum is ${f.templateOptions.min}`,
@@ -85,6 +86,7 @@ import { StepperTypeComponent } from './types/stepper-type/stepper-type.componen
           name: 'maxlength',
           message: (_, f) => `Maximum length is ${f.templateOptions.maxLength}`,
         },
+        */
       ],
       extras: { lazyRender: true },
     }),

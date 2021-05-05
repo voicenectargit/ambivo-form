@@ -13,7 +13,7 @@ export class StepperTypeComponent extends FieldType {
     return this.field.fieldGroup?.length;
   }
 
-  isValid(field: FormlyFieldConfig) {
+  isValid(field: FormlyFieldConfig): boolean {
     if (field.key) {
       return field.formControl.valid;
     }

@@ -7,7 +7,6 @@ import { WidgetInterface } from 'projects/ambivo-form/src/lib/widget.interface';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'ambivo-form-showcase';
   widget: WidgetInterface = {
     id: 'widget_id',
     name: 'widget_name',
@@ -19,6 +18,7 @@ export class AppComponent {
       submit: 'Submit',
       message:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim',
+      multistep: true,
       fields: [
         {
           type: 'stepper',

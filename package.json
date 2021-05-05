@@ -1,5 +1,5 @@
 {
-  "name": "ambivo-form",
+  "name": "@voicenectargit/ambivo-form",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~10.0.6",
     "@angular/common": "~10.0.6",
