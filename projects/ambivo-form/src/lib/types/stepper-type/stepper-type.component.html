@@ -41,7 +41,7 @@
         [disabled]="!form.valid"
         type="submit"
       >
-        {{ to.submit }}
+        {{ (widget$ | async)?.body?.submit }}
       </button>
     </div>
   </div>

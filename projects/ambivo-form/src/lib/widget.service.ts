@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,6 +10,8 @@ import { WidgetInterface } from './widget.interface';
 })
 export class WidgetService {
   apiUrl = 'https://goferapi.ambivo.com';
+  private _widget = new BehaviorSubject<WidgetInterface>(undefined);
+  public widget$ = this._widget.asObservable();
   constructor(private http: HttpClient) {}
 
   getWidget(id: string, token: string): Observable<WidgetInterface> {
@@ -24,8 +26,13 @@ export class WidgetService {
             throw new Error('Widget not found');
           }
         }),
-        map((response) => response.widget_list[0])
+        map((response) => response.widget_list[0]),
+        tap((widget) => this._widget.next(widget))
       );
+  }
+
+  setWidget(widget: WidgetInterface): void {
+    this._widget.next(widget ? JSON.parse(JSON.stringify(widget)) : undefined);
   }
 
   executeWidget(id: string, token: string, payload: any): Observable<any> {

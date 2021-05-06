@@ -2,12 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AmbivoFormModule } from 'ambivo-form';
-import { FormlyModule } from '@ngx-formly/core';
+import { AmbivoFormModule } from 'projects/ambivo-form/src/lib/ambivo-form.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AmbivoFormModule, FormlyModule.forRoot()],
+  imports: [BrowserModule, AmbivoFormModule],
   providers: [],
   bootstrap: [AppComponent],
 })

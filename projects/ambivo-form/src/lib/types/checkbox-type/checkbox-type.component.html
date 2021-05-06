@@ -1,0 +1,14 @@
+<div class="form-check form-check-inline">
+  <input
+    type="checkbox"
+    class="form-check-input"
+    [class.is-invalid]="showError"
+    [indeterminate]="to.indeterminate && formControl.value == null"
+    [formControl]="formControl"
+    [formlyAttributes]="field"
+  />
+  <label [for]="id" class="form-check-label">
+    {{ to.label }}
+    <span *ngIf="to.required && to.hideRequiredMarker !== true">*</span>
+  </label>
+</div>

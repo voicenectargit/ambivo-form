@@ -1,4 +1,4 @@
-@import '../styles/variables';
+@import "../styles/variables";
 
 .ambivo-form {
   margin: 0;
@@ -81,8 +81,8 @@
   select {
     background-image: $select-indicator;
     background-repeat: no-repeat;
-    background-position: right .5em center;
-    background-size: 1em .8em;
+    background-position: right 0.5em center;
+    background-size: 1em 0.8em;
   }
 
   /*
@@ -176,6 +176,32 @@
     &.message-error {
       background-color: $error-color;
       color: #fff;
+    }
+  }
+
+  /*
+   * Layout
+   */
+  formly-form,
+  formly-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+  formly-field {
+    width: 100%;
+    margin: 0 -16px;
+    @media (min-width: 768px) {
+      &.col-33 {
+        width: 33.3333%;
+      }
+      &.col-50 {
+        width: 50%;
+      }
+      &.col-66 {
+        width: 66.6666%;
+      }
     }
   }
   *,
