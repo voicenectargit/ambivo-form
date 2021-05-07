@@ -1,0 +1,25 @@
+@import './core/variables';
+
+formly-form,
+formly-group {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(#{$gap} * -1);
+  clear: none;
+}
+formly-field {
+  width: 100%;
+  padding: 0 $gap;
+  @media (min-width: 768px) {
+    &.col-33 {
+      width: calc(33.3333% - calc(#{$gap} * 2));
+    }
+    &.col-50 {
+      width: calc(50% - calc(#{$gap} * 2));
+    }
+    &.col-66 {
+      width: calc(66.6666% - calc(#{$gap} * 2));
+    }
+  }
+}

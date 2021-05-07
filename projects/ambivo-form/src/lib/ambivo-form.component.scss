@@ -1,8 +1,10 @@
-@import "../styles/variables";
+@import "../styles/core/variables";
 
 .ambivo-form {
+  @import "../styles/styles";
+
   margin: 0;
-  font-family: 'Roboto', sans-serif;//$font-family;
+  font-family: $font-family;
   line-height: $line-height;
   background-color: $container-bg;
   padding: $container-spacing;
@@ -12,7 +14,7 @@
   max-width: 100%;
   .ambivo-form--header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: $header-spacing;
   }
   .ambivo-form--logo {
@@ -27,179 +29,5 @@
   .ambivo-form--subtitle {
     font-size: $subtitle-size;
     color: $subtitle-color;
-  }
-
-  /*
-   * Form-group
-   */
-  .form-group {
-    margin: $field-spacing 0;
-    &.has-error {
-      &,
-      label {
-        color: $error-color;
-      }
-    }
-  }
-  label {
-    display: inline-block;
-    color: $field-label-color;
-    font-size: $field-label-size;
-    margin-bottom: calc(#{$field-spacing}/ 2.3);
-  }
-
-  /*
-   * Form-control
-   */
-  .form-control {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    padding: 0.5em;
-    font-family: $font-family;
-    font-size: $field-size;
-    font-weight: normal;
-    line-height: $line-height;
-    color: $field-color;
-    background-color: $field-bg;
-    border: $field-border-width solid $field-border-color;
-    border-radius: $field-border-radius;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    &:focus {
-      color: inherit;
-      background-color: $field-bg;
-      border-color: $field-accent-color;
-      box-shadow: 0 0 0.4em $field-accent-color;
-      outline: 0;
-    }
-    &::placeholder {
-      opacity: 1;
-      color: $field-placeholder-color;
-    }
-    &.is-invalid,
-    &.is-invalid:focus {
-      border-color: $error-color;
-      color: $error-color;
-    }
-  }
-  select {
-    background-image: $select-indicator;
-    background-repeat: no-repeat;
-    background-position: right 0.5em center;
-    background-size: 1em 0.8em;
-  }
-
-  /*
-   * Checkbox
-   */
-  .form-check {
-    display: flex;
-    align-items: center;
-    label {
-      margin: 0;
-    }
-  }
-  .form-check-inline {
-    display: inline-block;
-    margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
-  }
-  .form-check-input {
-    font-size: $field-size;
-    width: $field-size;
-    height: $field-size;
-    vertical-align: top;
-    margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
-    background-color: $field-bg;
-    border: $field-border-width solid $field-border-color;
-    border-radius: $field-border-radius;
-    margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    &[type="radio"] {
-      border-radius: 100%;
-    }
-
-    &:focus {
-      outline: 0;
-      box-shadow: 0 0 0.4em $field-accent-color;
-    }
-    &:checked {
-      background-color: $field-accent-color;
-      border-color: $field-accent-color;
-      &[type="checkbox"] {
-        background-image: $checkbox-bg;
-      }
-
-      &[type="radio"] {
-        background-image: $radio-bg;
-      }
-    }
-  }
-
-  /*
-   * Button
-   */
-  .ambivo-form--button {
-    position: relative;
-    padding: 0.8em 2em;
-    font-size: $button-size;
-    white-space: nowrap;
-    background-color: $button-bg;
-    color: $button-color;
-    border: none;
-    border-radius: $button-border-radius;
-    cursor: pointer;
-    outline: none !important;
-    &:disabled {
-      cursor: default;
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.4);
-      }
-    }
-  }
-
-  /*
-   * Layout
-   */
-  /*
-  formly-form,
-  formly-group {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 calc(#{$gap} * -1);
-    clear: none;
-  }
-  formly-field {
-    width: 100%;
-    padding: 0 $gap;
-    @media (min-width: 768px) {
-      &.col-33 {
-        width: calc(33.3333% - calc(#{$gap} * 2));
-      }
-      &.col-50 {
-        width: calc(50% - calc(#{$gap} * 2));
-      }
-      &.col-66 {
-        width: calc(66.6666% - calc(#{$gap} * 2));
-      }
-    }
-  }
-  */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
   }
 }

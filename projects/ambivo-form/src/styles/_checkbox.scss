@@ -1,0 +1,47 @@
+@import './core/variables';
+
+.form-check {
+  display: flex;
+  align-items: center;
+  label {
+    margin: 0;
+  }
+}
+.form-check-inline {
+  display: inline-block;
+  margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
+}
+.form-check-input {
+  font-size: $field-size;
+  width: $field-size;
+  height: $field-size;
+  vertical-align: top;
+  margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
+  background-color: $field-bg;
+  border: $field-border-width solid $field-border-color;
+  border-radius: $field-border-radius;
+  margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &[type="radio"] {
+    border-radius: 100%;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0.4em $field-accent-color;
+  }
+  &:checked {
+    background-color: $field-accent-color;
+    border-color: $field-accent-color;
+    &[type="checkbox"] {
+      background-image: $checkbox-bg;
+    }
+
+    &[type="radio"] {
+      background-image: $radio-bg;
+    }
+  }
+}

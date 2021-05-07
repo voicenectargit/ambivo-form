@@ -43,7 +43,7 @@ export class StepperTypeComponent extends FieldType {
     this.currentStep--;
   }
 
-  submit(widget): void {
+  submit(widget: WidgetInterface): void {
     this.currentStep = 0;
     this._parent?.submit(widget);
   }

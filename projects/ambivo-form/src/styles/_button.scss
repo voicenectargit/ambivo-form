@@ -1,0 +1,26 @@
+@import './core/variables';
+
+.ambivo-form--button {
+  position: relative;
+  padding: 0.8em 2em;
+  font-size: $button-size;
+  white-space: nowrap;
+  background-color: $button-bg;
+  color: $button-color;
+  border: none;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  outline: none !important;
+  &:disabled {
+    cursor: default;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}

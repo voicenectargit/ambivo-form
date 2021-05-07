@@ -1,0 +1,36 @@
+@import "./core/variables";
+
+.form-control {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5em;
+  font-family: $font-family;
+  font-size: $field-size;
+  font-weight: normal;
+  line-height: $line-height;
+  color: $field-color;
+  background-color: $field-bg;
+  border: $field-border-width solid $field-border-color;
+  border-radius: $field-border-radius;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus {
+    color: inherit;
+    background-color: $field-bg;
+    border-color: $field-accent-color;
+    box-shadow: 0 0 0.4em $field-accent-color;
+    outline: 0;
+  }
+  &::placeholder {
+    opacity: 1;
+    color: $field-placeholder-color;
+  }
+  &.is-invalid,
+  &.is-invalid:focus {
+    border-color: $error-color;
+    color: $error-color;
+  }
+}
