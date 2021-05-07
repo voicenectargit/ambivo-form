@@ -5,5 +5,11 @@
   [formlyAttributes]="field"
   [class.is-invalid]="showError"
   currencyMask
-  [options]="{ prefix: to.currency, align: 'left', min: to.min, max: to.max }"
+  [options]="{
+    prefix: to.currency,
+    align: 'left',
+    min: to.min,
+    max: to.max,
+    precision: 0
+  }"
 />

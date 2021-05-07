@@ -15,6 +15,7 @@ export interface WidgetInterface {
     actions?: string[];
     multistep?: boolean;
     fields: FormlyFieldConfig[];
-    styling: any;
+    styling?: any;
+    logo?: string;
   };
 }

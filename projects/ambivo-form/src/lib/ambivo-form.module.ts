@@ -17,6 +17,7 @@ import { FormlySelectModule } from '@ngx-formly/core/select';
 import { DateTypeComponent } from './types/date-type/date-type.component';
 import { MoneyTypeComponent } from './types/money-type/money-type.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { FontLoaderComponent } from './font-loader/font-loader.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     DateTypeComponent,
     MoneyTypeComponent,
     SnackbarComponent,
+    FontLoaderComponent,
   ],
   imports: [
     CommonModule,

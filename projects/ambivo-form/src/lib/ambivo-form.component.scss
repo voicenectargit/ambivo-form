@@ -2,7 +2,7 @@
 
 .ambivo-form {
   margin: 0;
-  font-family: $font-family;
+  font-family: 'Roboto', sans-serif;//$font-family;
   line-height: $line-height;
   background-color: $container-bg;
   padding: $container-spacing;
@@ -10,6 +10,15 @@
   border-radius: $container-border-radius;
   display: block;
   max-width: 100%;
+  .ambivo-form--header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $header-spacing;
+  }
+  .ambivo-form--logo {
+    width: 80px;
+    margin-right: 18px;
+  }
   .ambivo-form--title {
     font-size: $title-size;
     color: $title-color;
@@ -18,9 +27,6 @@
   .ambivo-form--subtitle {
     font-size: $subtitle-size;
     color: $subtitle-color;
-  }
-  .ambivo-form--header {
-    margin-bottom: $header-spacing;
   }
 
   /*

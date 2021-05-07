@@ -57,8 +57,8 @@ export class WidgetService {
   }
 
   private _catchError(error: any): Observable<any> {
-    const defaultMsg = 'Something went wrong';
-    const msg = typeof error === 'string' ? error : error.message || defaultMsg;
+    const defaults = 'Something went wrong';
+    const msg = typeof error === 'string' ? error : error?.message || defaults;
 
     this.snackarService.show(msg, { title: 'Error', type: 'error' });
     return throwError(error);

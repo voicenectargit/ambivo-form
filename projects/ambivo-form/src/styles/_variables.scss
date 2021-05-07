@@ -10,7 +10,7 @@ $container-border-radius: var(--container-border-radius, 0);
 $container-border-width: var(--container-border-width, 0);
 $container-border-color: var(--container-border-color, transparent);
 // Header
-$header-spacing: calc(var(--header-spacing) * 1px);
+$header-spacing: calc(var(--header-spacing, 24) * 1px);
 $title-color: var(--title-color, $default-text-color);
 $title-size: var(--title-size, $default-text-size * 2);
 $subtitle-color: var(--subtitle-color, $default-text-color);

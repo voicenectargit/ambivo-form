@@ -1,11 +1,17 @@
 <ng-container *ngIf="widget$ | async as widget">
   <ng-container *ngIf="widget.body as data">
+    <!-- Font -->
+    <font-loader [font]="data.styling['--font-family']"></font-loader>
+
     <div class="ambivo-form" [style.width]="width" [style]="data.styling">
       <!-- Header -->
       <div class="ambivo-form--header" *ngIf="data.title as title">
-        <div class="ambivo-form--title">{{ title }}</div>
-        <div class="ambivo-form--subtitle" *ngIf="data.subtitle as subtitle">
-          {{ subtitle }}
+        <img [src]="logo" *ngIf="data.logo as logo" class="ambivo-form--logo" />
+        <div>
+          <div class="ambivo-form--title">{{ title }}</div>
+          <div class="ambivo-form--subtitle" *ngIf="data.subtitle as subtitle">
+            {{ subtitle }}
+          </div>
         </div>
       </div>
 
