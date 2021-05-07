@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormlyModule } from '@ngx-formly/core';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { AmbivoFormComponent } from './ambivo-form.component';
 import { StepperTypeComponent } from './types/stepper-type/stepper-type.component';
@@ -13,6 +14,9 @@ import { RadioTypeComponent } from './types/radio-type/radio-type.component';
 import { SelectTypeComponent } from './types/select-type/select-type.component';
 import { FormFieldTypeComponent } from './types/form-field-type/form-field-type.component';
 import { FormlySelectModule } from '@ngx-formly/core/select';
+import { DateTypeComponent } from './types/date-type/date-type.component';
+import { MoneyTypeComponent } from './types/money-type/money-type.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,9 @@ import { FormlySelectModule } from '@ngx-formly/core/select';
     RadioTypeComponent,
     SelectTypeComponent,
     FormFieldTypeComponent,
+    DateTypeComponent,
+    MoneyTypeComponent,
+    SnackbarComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +38,7 @@ import { FormlySelectModule } from '@ngx-formly/core/select';
     HttpClientModule,
     FormlySelectModule,
     FormlyModule.forChild(),
+    CurrencyMaskModule,
   ],
   exports: [AmbivoFormComponent],
 })

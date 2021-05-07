@@ -1,9 +1,9 @@
 <input
-  [type]="to.type || 'text'"
-  [formControl]="formControl"
+  type="text"
   class="form-control"
+  [formControl]="formControl"
   [formlyAttributes]="field"
   [class.is-invalid]="showError"
-  [min]="to.min"
-  [max]="to.max"
+  #element
 />
+

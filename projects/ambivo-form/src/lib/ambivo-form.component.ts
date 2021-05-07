@@ -6,19 +6,20 @@ import {
   SimpleChanges,
   Inject,
 } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-import { take } from 'rxjs/operators';
-
-import { config } from './config';
-import { WidgetInterface } from './widget.interface';
-import { WidgetService } from './widget.service';
 import {
   FormlyConfig,
   FORMLY_CONFIG,
   FormlyModule,
   ConfigOption,
 } from '@ngx-formly/core';
+import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+
+import { config } from './config';
+import { SnackbarService } from './snackbar/snackbar.service';
+import { WidgetInterface } from './widget.interface';
+import { WidgetService } from './widget.service';
 
 const providers = FormlyModule.forRoot(config).providers;
 @Component({
@@ -33,8 +34,6 @@ export class AmbivoFormComponent implements OnChanges {
   form = new FormGroup({});
   widget$: Observable<WidgetInterface>;
   isLoading: boolean;
-  isSuccess: boolean;
-  errorMessage: string;
   @Input() id: string;
   @Input() token: string;
   @Input() debug: WidgetInterface;
@@ -42,6 +41,7 @@ export class AmbivoFormComponent implements OnChanges {
 
   constructor(
     private widgetService: WidgetService,
+    private snackarService: SnackbarService,
     @Inject(FormlyConfig) formlyConfig: FormlyConfig,
     @Inject(FORMLY_CONFIG) formlyConfigOptions: ConfigOption[]
   ) {
@@ -52,31 +52,30 @@ export class AmbivoFormComponent implements OnChanges {
     this.widget$ = this.widgetService.widget$;
     if (changes.debug) {
       this.widgetService.setWidget(this.debug);
-    } else if (changes.id) {
-      this.widgetService.getWidget(this.id, this.token);
+    } else {
+      this.widget$ = this.widgetService.getWidget(this.id, this.token);
     }
   }
 
   submit(widget: WidgetInterface): void {
-    this.isSuccess = false;
     this.isLoading = true;
-    this.errorMessage = undefined;
 
     this.widgetService
       .executeWidget(widget.id, this.token, this.model)
       .pipe(take(1))
-      .subscribe(
-        () => this.onSuccess(widget),
-        (error) => (this.errorMessage = error)
-      )
+      .subscribe(() => this.onSuccess(widget))
       .add(() => (this.isLoading = false));
   }
 
   onSuccess(widget: WidgetInterface): void {
-    this.isSuccess = true;
     this.form.reset();
     if (widget.body.redirect_url) {
       window.location.replace(widget.body.redirect_url);
+    } else {
+      this.snackarService.show('Your data was sent successfully', {
+        title: 'Submitted!',
+        type: 'success',
+      });
     }
   }
 }

@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Optional } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 import { Observable } from 'rxjs';
 
 import { WidgetService } from '../../widget.service';
 import { WidgetInterface } from '../../widget.interface';
+import { AmbivoFormComponent } from '../../ambivo-form.component';
 
 @Component({
   selector: 'stepper-type',
@@ -19,7 +20,10 @@ export class StepperTypeComponent extends FieldType {
     return this.field.fieldGroup?.length;
   }
 
-  constructor(private widgetService: WidgetService) {
+  constructor(
+    private widgetService: WidgetService,
+    @Optional() private _parent?: AmbivoFormComponent
+  ) {
     super();
     this.widget$ = this.widgetService.widget$;
   }
@@ -37,5 +41,10 @@ export class StepperTypeComponent extends FieldType {
 
   prev(): void {
     this.currentStep--;
+  }
+
+  submit(widget): void {
+    this.currentStep = 0;
+    this._parent?.submit(widget);
   }
 }

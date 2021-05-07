@@ -5,6 +5,7 @@ export interface WidgetInterface {
   name: string;
   type: string;
   description: string;
+  token?: string;
   body: {
     title?: string;
     subtitle?: string;

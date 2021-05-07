@@ -6,7 +6,7 @@
   },
   "whitelistedNonPeerDependencies": [
     "@ngx-formly/core",
-    "@ngx-formly/bootstrap"
+    "ng2-currency-mask",
+    "flatpickr"
   ]
 }
-

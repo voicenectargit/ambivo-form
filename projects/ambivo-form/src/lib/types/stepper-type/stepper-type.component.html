@@ -1,6 +1,17 @@
 <!-- Progress bar -->
 <div *ngIf="field.fieldGroup[currentStep] as step">
-  <h2 class="ambivo-form--subtitle">{{ step.templateOptions.label }}</h2>
+  <div class="ambivo-form--step-header">
+    <div class="ambivo-form--step-title">
+      {{ step.templateOptions.label }}
+      <small>({{ currentStep + 1 }} of {{ length }} )</small>
+    </div>
+    <div
+      class="ambivo-form--step-description"
+      *ngIf="step.templateOptions.description as description"
+    >
+      {{ description }}
+    </div>
+  </div>
   <div class="ambivo-form--progress">
     <span [style.width]="((currentStep + 1) / length) * 100 + '%'"></span>
   </div>
@@ -35,14 +46,17 @@
         Next
       </button>
 
-      <button
-        *ngIf="last"
-        class="ambivo-form--button"
-        [disabled]="!form.valid"
-        type="submit"
-      >
-        {{ (widget$ | async)?.body?.submit }}
-      </button>
+      <ng-container *ngIf="widget$ | async as widget">
+        <button
+          *ngIf="last"
+          class="ambivo-form--button"
+          [disabled]="!form.valid"
+          type="submit"
+          (click)="submit(widget)"
+        >
+          {{ widget.body?.submit }}
+        </button>
+      </ng-container>
     </div>
   </div>
 </ng-container>

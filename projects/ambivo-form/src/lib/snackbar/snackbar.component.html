@@ -1,0 +1,8 @@
+<div
+  class="ambivo-form--snackbar snackbar-{{ options.type }}"
+  (click)="close()"
+  #element
+>
+  <div class="snackbar-title" *ngIf="options.title as title">{{ title }}</div>
+  <div class="snackbar-text">{{ text }}</div>
+</div>

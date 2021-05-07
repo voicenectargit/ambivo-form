@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, BehaviorSubject, throwError, of } from 'rxjs';
+import { map, tap, catchError, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { WidgetInterface } from './widget.interface';
+import { SnackbarService } from './snackbar/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,10 @@ export class WidgetService {
   apiUrl = 'https://goferapi.ambivo.com';
   private _widget = new BehaviorSubject<WidgetInterface>(undefined);
   public widget$ = this._widget.asObservable();
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private snackarService: SnackbarService
+  ) {}
 
   getWidget(id: string, token: string): Observable<WidgetInterface> {
     const origin = window?.location?.href;
@@ -21,11 +25,13 @@ export class WidgetService {
     return this.http
       .get<any>(`${this.apiUrl}/public/widget`, { params })
       .pipe(
-        tap((response) => {
+        switchMap((response) => {
           if (!response?.widget_list?.length) {
-            throw new Error('Widget not found');
+            return throwError('Widget not found');
           }
+          return of(response);
         }),
+        catchError((error) => this._catchError(error)),
         map((response) => response.widget_list[0]),
         tap((widget) => this._widget.next(widget))
       );
@@ -40,11 +46,21 @@ export class WidgetService {
     const body = { widget_id: id, token, payload, origin_url: origin };
 
     return this.http.post<any>(`${this.apiUrl}/public/widget`, body).pipe(
-      tap((response) => {
+      switchMap((response) => {
         if (response.result !== 1) {
-          throw new Error(response.error);
+          return throwError(response.error);
         }
-      })
+        return of(response);
+      }),
+      catchError((error) => this._catchError(error))
     );
+  }
+
+  private _catchError(error: any): Observable<any> {
+    const defaultMsg = 'Something went wrong';
+    const msg = typeof error === 'string' ? error : error.message || defaultMsg;
+
+    this.snackarService.show(msg, { title: 'Error', type: 'error' });
+    return throwError(error);
   }
 }

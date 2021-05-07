@@ -7,6 +7,9 @@ import { SelectTypeComponent } from './types/select-type/select-type.component';
 import { CheckboxTypeComponent } from './types/checkbox-type/checkbox-type.component';
 import { RadioTypeComponent } from './types/radio-type/radio-type.component';
 import { FormFieldTypeComponent } from './types/form-field-type/form-field-type.component';
+import { DateTypeComponent } from './types/date-type/date-type.component';
+import { timezones } from './utils/timezones';
+import { MoneyTypeComponent } from './types/money-type/money-type.component';
 
 export const config = {
   types: [
@@ -32,6 +35,12 @@ export const config = {
       component: StepperTypeComponent,
     },
     {
+      name: 'number',
+      component: InputTypeComponent,
+      wrappers: ['form-field'],
+      defaultOptions: { templateOptions: { type: 'number' } },
+    },
+    {
       name: 'phone',
       component: InputTypeComponent,
       wrappers: ['form-field'],
@@ -52,16 +61,30 @@ export const config = {
       defaultOptions: { validators: { validation: ['url'] } },
     },
     {
-      name: 'checkbox',
-      component: InputTypeComponent,
+      name: 'date',
+      component: DateTypeComponent,
+      wrappers: ['form-field'],
+      defaultOptions: { templateOptions: { enableTime: false } },
+    },
+    {
+      name: 'datetime',
+      component: DateTypeComponent,
+      wrappers: ['form-field'],
+      defaultOptions: { templateOptions: { enableTime: true } },
+    },
+    {
+      name: 'timezone',
+      component: SelectTypeComponent,
+      wrappers: ['form-field'],
       defaultOptions: {
-        templateOptions: { indeterminate: false, formCheck: 'stacked' },
+        templateOptions: { options: ['', ...timezones] },
       },
     },
     {
-      name: 'radio',
-      component: InputTypeComponent,
-      defaultOptions: { templateOptions: { formCheck: 'stacked' } },
+      name: 'money',
+      component: MoneyTypeComponent,
+      wrappers: ['form-field'],
+      defaultOptions: { templateOptions: { currency: '$' } },
     },
   ],
   wrappers: [{ name: 'form-field', component: FormFieldTypeComponent }],

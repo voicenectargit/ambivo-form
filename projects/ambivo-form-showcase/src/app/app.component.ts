@@ -30,11 +30,40 @@ export class AppComponent {
               },
               fieldGroup: [
                 {
+                  key: 'number',
+                  type: 'number',
+                  className: 'col-50',
+                  templateOptions: {
+                    label: 'Number',
+                  },
+                },
+                {
+                  key: 'money',
+                  type: 'money',
+                  className: 'col-50',
+                  templateOptions: {
+                    label: 'Amount',
+                  },
+                },
+                {
+                  key: 'timezone',
+                  type: 'timezone',
+                  templateOptions: {
+                    label: 'Timezone',
+                  },
+                },
+                {
+                  key: 'date',
+                  type: 'date',
+                  templateOptions: {
+                    label: 'Date',
+                  },
+                },
+                {
                   key: 'input',
                   type: 'input',
                   templateOptions: {
                     label: 'Input',
-                    required: true,
                   },
                 },
                 {
@@ -88,11 +117,8 @@ export class AppComponent {
                   type: 'radio',
                   templateOptions: {
                     label: 'Radio',
-                    formCheck: 'inline',
-                    options: [
-                      { label: 'foo', value: 'foo' },
-                      { label: 'bar', value: 'bar' },
-                    ],
+                    formCheck: 'stacked',
+                    options: ['foo', 'bar'],
                   },
                 },
                 {
@@ -101,10 +127,7 @@ export class AppComponent {
                   templateOptions: {
                     label: 'Select',
                     formCheck: 'inline',
-                    options: [
-                      { label: 'foo', value: 'foo' },
-                      { label: 'bar', value: 'bar' },
-                    ],
+                    options: ['foo', 'bar'],
                   },
                 },
               ],

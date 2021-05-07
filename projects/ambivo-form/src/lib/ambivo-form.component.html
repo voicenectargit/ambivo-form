@@ -22,7 +22,7 @@
           type="submit"
           class="ambivo-form--button"
           (click)="submit(widget)"
-          [disabled]="!form.valid || isLoading"
+          [disabled]="!widget.id || !form.valid || isLoading"
           *ngIf="!data.multistep"
         >
           {{ data.submit }}

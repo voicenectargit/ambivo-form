@@ -1,0 +1,56 @@
+$spacer: 18px;
+$success-color: #449d44;
+$info-color: #5bc0de;
+$error-color: #c9302c;
+$border-radius: 6px;
+
+.ambivo-form--snackbar {
+  position: fixed;
+  bottom: $spacer * 2;
+  right: $spacer * 2;
+  max-width: 400px;
+  padding: $spacer;
+  box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%),
+    0 1px 5px 0 rgb(0 0 0 / 12%);
+  cursor: pointer;
+  border-radius: $border-radius;
+  animation-name: fade-in;
+  animation-duration: 0.4s;
+
+  // Typography
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Arial';
+  .snackbar-title{
+    font-size: 2em;
+  }
+
+  &.snackbar-info {
+    background-color: $info-color;
+  }
+  &.snackbar-success {
+    background-color: $success-color;
+  }
+  &.snackbar-error {
+    background-color: $error-color;
+  }
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: $spacer;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translate(0, -80px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}

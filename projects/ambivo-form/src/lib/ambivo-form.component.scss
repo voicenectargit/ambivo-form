@@ -48,6 +48,7 @@
   .form-control {
     display: block;
     width: 100%;
+    max-width: 100%;
     padding: 0.5em;
     font-family: $font-family;
     font-size: $field-size;
@@ -96,7 +97,7 @@
     }
   }
   .form-check-inline {
-    display: inline;
+    display: inline-block;
     margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
   }
   .form-check-input {
@@ -147,6 +148,7 @@
     border: none;
     border-radius: $button-border-radius;
     cursor: pointer;
+    outline: none !important;
     &:disabled {
       cursor: default;
       &:after {
@@ -162,48 +164,33 @@
   }
 
   /*
-   * Message
-   */
-  .ambivo-form--message {
-    position: relative;
-    padding: 1em;
-    margin-bottom: 1em;
-    border: none;
-    &.message-success {
-      background-color: $success-color;
-      color: #fff;
-    }
-    &.message-error {
-      background-color: $error-color;
-      color: #fff;
-    }
-  }
-
-  /*
    * Layout
    */
+  /*
   formly-form,
   formly-group {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 0 16px;
+    margin: 0 calc(#{$gap} * -1);
+    clear: none;
   }
   formly-field {
     width: 100%;
-    margin: 0 -16px;
+    padding: 0 $gap;
     @media (min-width: 768px) {
       &.col-33 {
-        width: 33.3333%;
+        width: calc(33.3333% - calc(#{$gap} * 2));
       }
       &.col-50 {
-        width: 50%;
+        width: calc(50% - calc(#{$gap} * 2));
       }
       &.col-66 {
-        width: 66.6666%;
+        width: calc(66.6666% - calc(#{$gap} * 2));
       }
     }
   }
+  */
   *,
   *::before,
   *::after {

@@ -1,5 +1,19 @@
 @import "../../../styles/variables";
 
+.ambivo-form--step-header{
+  margin-bottom: $container-spacing;
+}
+.ambivo-form--step-title{
+  font-weight: bold;
+  font-size: 24px;
+  color: $title-color;
+  small{
+    white-space: nowrap;
+  }
+}
+.ambivo-form--step-description{
+  color: $subtitle-color;
+}
 .ambivo-form--actions {
   display: flex;
   flex-direction: row;

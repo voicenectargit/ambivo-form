@@ -4,6 +4,6 @@
   class="form-control"
   [formlyAttributes]="field"
   [class.is-invalid]="showError"
-  [min]="to.min"
-  [max]="to.max"
+  currencyMask
+  [options]="{ prefix: to.currency, align: 'left', min: to.min, max: to.max }"
 />
