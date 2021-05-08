@@ -10,6 +10,7 @@ import { FormFieldTypeComponent } from './types/form-field-type/form-field-type.
 import { DateTypeComponent } from './types/date-type/date-type.component';
 import { timezones } from './utils/timezones';
 import { MoneyTypeComponent } from './types/money-type/money-type.component';
+import { FileTypeComponent } from './types/file-type/file-type.component';
 
 export const config = {
   types: [
@@ -86,6 +87,7 @@ export const config = {
       wrappers: ['form-field'],
       defaultOptions: { templateOptions: { currency: '$' } },
     },
+    { name: 'file', component: FileTypeComponent, wrappers: ['form-field'] },
   ],
   wrappers: [{ name: 'form-field', component: FormFieldTypeComponent }],
   validators: [

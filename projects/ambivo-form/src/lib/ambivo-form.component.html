@@ -1,7 +1,9 @@
 <ng-container *ngIf="widget$ | async as widget">
   <ng-container *ngIf="widget.body as data">
     <!-- Font -->
-    <font-loader [font]="data.styling['--font-family']"></font-loader>
+    <ng-container *ngIf="data.styling">
+      <font-loader [font]="data.styling['--font-family']"></font-loader>
+    </ng-container>
 
     <div class="ambivo-form" [style.width]="width" [style]="data.styling">
       <!-- Header -->

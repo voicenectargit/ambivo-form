@@ -18,6 +18,7 @@ import { DateTypeComponent } from './types/date-type/date-type.component';
 import { MoneyTypeComponent } from './types/money-type/money-type.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { FontLoaderComponent } from './font-loader/font-loader.component';
+import { FileTypeComponent } from './types/file-type/file-type.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FontLoaderComponent } from './font-loader/font-loader.component';
     MoneyTypeComponent,
     SnackbarComponent,
     FontLoaderComponent,
+    FileTypeComponent,
   ],
   imports: [
     CommonModule,

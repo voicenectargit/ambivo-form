@@ -18,6 +18,9 @@
           "configurations": {
             "production": {
               "tsConfig": "projects/ambivo-form/tsconfig.lib.prod.json"
+            },
+            "ivy": {
+              "tsConfig": "projects/ambivo-form/tsconfig.lib.ivy.json"
             }
           }
         },
@@ -263,4 +266,3 @@
   },
   "defaultProject": "ambivo-form"
 }
-

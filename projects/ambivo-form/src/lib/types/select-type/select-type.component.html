@@ -8,7 +8,7 @@
   [formlyAttributes]="field"
 >
   <ng-container *ngIf="to.options | formlySelectOptions: field | async as opts">
-    <option></option>
+    <option *ngIf="!to.multiple"></option>
     <ng-container *ngFor="let opt of opts">
       <option [ngValue]="opt.value" [disabled]="opt.disabled">
         {{ opt.label }}

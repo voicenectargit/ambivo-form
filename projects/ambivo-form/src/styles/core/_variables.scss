@@ -3,7 +3,7 @@ $default-text-color: #444;
 $line-height: 1.5;
 
 // Container
-$font-family: var(--font-family, "Arial");
+$font-family: var(--font-family, "inherit");
 $container-bg: var(--container-bg, transparent);
 $container-spacing: calc(var(--container-spacing, 24) * 1px);
 $container-border-radius: var(--container-border-radius, 0);

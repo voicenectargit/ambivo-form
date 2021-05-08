@@ -3,13 +3,14 @@
 .form-check {
   display: flex;
   align-items: center;
+  margin-bottom: calc((var(--field-spacig, 18) / 2) * 1px);
   label {
     margin: 0;
   }
 }
 .form-check-inline {
-  display: inline-block;
-  margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
+  display: inline-flex;
+  margin-right: calc(var(--field-spacig, 18) * 1px);
 }
 .form-check-input {
   font-size: $field-size;

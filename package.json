@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --project ambivo-form-showcase",
     "build:element": "ng build --prod --project ambivo-form-element --single-bundle --output-hashing none",
-    "build:library": "ng build ambivo-form --prod",
+    "build:library": "ng build ambivo-form",
     "build": "npm run build:element && npm run build:library",
     "test": "ng test",
     "lint": "ng lint",

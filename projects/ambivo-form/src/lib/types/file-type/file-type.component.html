@@ -1,0 +1,17 @@
+<input
+  type="text"
+  class="form-control"
+  [class.is-invalid]="showError"
+  [value]="fileName || ''"
+  readonly
+  (click)="fileInput.click()"
+  accept="image/*,.pdf"
+/>
+<input
+  type="file"
+  class="form-file"
+  [class.is-invalid]="showError"
+  (change)="setFile($event)"
+  id="file-input"
+  #fileInput
+/>
