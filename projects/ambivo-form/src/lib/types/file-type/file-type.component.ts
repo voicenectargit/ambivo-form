@@ -14,6 +14,12 @@ import { FileTypeService } from './file-type.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FileTypeComponent extends FieldType {
+  defaultOptions = {
+    templateOptions: {
+      icon: 'attach',
+    },
+  };
+
   constructor(
     private cd: ChangeDetectorRef,
     private snackbar: SnackbarService,
@@ -38,7 +44,6 @@ export class FileTypeComponent extends FieldType {
       }
 
       const reader = new FileReader();
-
       reader.onloadend = () => {
         this.fileTypeService.fileNames.set(this.field.key, file.name);
         this.formControl.setValue(reader.result);

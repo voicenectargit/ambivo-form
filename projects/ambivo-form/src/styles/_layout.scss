@@ -11,14 +11,14 @@ formly-field {
   width: 100%;
   padding: 0 $gap;
   @media (min-width: 768px) {
-    &.col-33 {
-      width: 33.3333%;//calc(33.3333% - calc(#{$gap} * 2));
+    &.am-col-33 {
+      width: 33.3333%;
     }
-    &.col-50 {
-      width: 50%;//calc(50% - calc(#{$gap} * 2));
+    &.am-col-50 {
+      width: 50%;
     }
-    &.col-66 {
-      width: 66.666%;//calc(66.6666% - calc(#{$gap} * 2));
+    &.am-col-66 {
+      width: 66.666%;
     }
   }
 }

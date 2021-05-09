@@ -1,10 +1,12 @@
-@import './core/variables';
+@import "./core/variables";
 
 .form-check {
+  color: $field-label-color;
   display: flex;
   align-items: center;
   margin-bottom: calc((var(--field-spacig, 18) / 2) * 1px);
   label {
+    display: inline-block;
     margin: 0;
   }
 }
@@ -14,8 +16,8 @@
 }
 .form-check-input {
   font-size: $field-size;
-  width: $field-size;
-  height: $field-size;
+  width: 1.4em;
+  height: 1.4em;
   vertical-align: top;
   margin-right: calc((var(--field-spacig, 18) / 2) * 1px);
   background-color: $field-bg;
@@ -34,6 +36,7 @@
     outline: 0;
     box-shadow: 0 0 0.4em $field-accent-color;
   }
+
   &:checked {
     background-color: $field-accent-color;
     border-color: $field-accent-color;

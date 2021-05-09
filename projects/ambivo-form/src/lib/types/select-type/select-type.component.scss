@@ -1,0 +1,11 @@
+@import "../../../styles/core/variables";
+
+select {
+  background-image: $select-indicator;
+  background-repeat: no-repeat;
+  background-position: right 0.5em center;
+  background-size: 1em 0.8em;
+  &[multiple]{
+    background-image: none;
+  }
+}

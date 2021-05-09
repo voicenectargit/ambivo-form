@@ -19,6 +19,8 @@ import { MoneyTypeComponent } from './types/money-type/money-type.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { FontLoaderComponent } from './font-loader/font-loader.component';
 import { FileTypeComponent } from './types/file-type/file-type.component';
+import { SvgIconComponent } from './svg-icon/svg-icon.component';
+import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { FileTypeComponent } from './types/file-type/file-type.component';
     SnackbarComponent,
     FontLoaderComponent,
     FileTypeComponent,
+    SvgIconComponent,
+    ButtonsTypeComponent,
   ],
   imports: [
     CommonModule,

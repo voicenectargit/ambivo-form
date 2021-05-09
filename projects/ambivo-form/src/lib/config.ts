@@ -11,6 +11,7 @@ import { DateTypeComponent } from './types/date-type/date-type.component';
 import { timezones } from './utils/timezones';
 import { MoneyTypeComponent } from './types/money-type/money-type.component';
 import { FileTypeComponent } from './types/file-type/file-type.component';
+import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.component';
 
 export const config = {
   types: [
@@ -18,86 +19,82 @@ export const config = {
     {
       name: 'textarea',
       component: TextareaTypeComponent,
-      wrappers: ['form-field'],
+      wrappers: ['form-field']
     },
     {
       name: 'select',
       component: SelectTypeComponent,
-      wrappers: ['form-field'],
+      wrappers: ['form-field']
     },
     {
       name: 'checkbox',
-      component: CheckboxTypeComponent,
-      wrappers: ['form-field'],
+      component: CheckboxTypeComponent
     },
-    { name: 'radio', component: RadioTypeComponent, wrappers: ['form-field'] },
+    { name: 'radio', component: RadioTypeComponent },
     {
       name: 'stepper',
-      component: StepperTypeComponent,
+      component: StepperTypeComponent
     },
     {
       name: 'number',
       component: InputTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { type: 'number' } },
+      defaultOptions: { templateOptions: { type: 'number' } }
     },
     {
       name: 'phone',
       component: InputTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { minLength: 8 } },
+      defaultOptions: { templateOptions: { minLength: 8, icon: 'phone' } }
     },
     {
       name: 'email',
       component: InputTypeComponent,
       wrappers: ['form-field'],
       defaultOptions: {
-        validators: { validation: ['email'] },
-      },
+        templateOptions: { icon: 'email' },
+        validators: { validation: ['email'] }
+      }
     },
     {
       name: 'url',
       component: InputTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { validators: { validation: ['url'] } },
+      defaultOptions: {
+        templateOptions: { icon: 'url' },
+        validators: { validation: ['url'] }
+      }
     },
     {
       name: 'date',
       component: DateTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { enableTime: false } },
+      defaultOptions: { templateOptions: { enableTime: false } }
     },
     {
       name: 'datetime',
       component: DateTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { enableTime: true } },
-    },
-    {
-      name: 'timezone',
-      component: SelectTypeComponent,
-      wrappers: ['form-field'],
-      defaultOptions: {
-        templateOptions: { options: ['', ...timezones] },
-      },
+      defaultOptions: { templateOptions: { enableTime: true } }
     },
     {
       name: 'money',
       component: MoneyTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { currency: '$' } },
+      defaultOptions: { templateOptions: { currency: '$' } }
     },
     { name: 'file', component: FileTypeComponent, wrappers: ['form-field'] },
+    { name: 'buttons', component: ButtonsTypeComponent }
   ],
   wrappers: [{ name: 'form-field', component: FormFieldTypeComponent }],
   validators: [
     { name: 'email', validation: CustomEmailValidator },
-    { name: 'url', validation: UrlValidator },
+    { name: 'url', validation: UrlValidator }
   ],
   validationMessages: [
     { name: 'required', message: 'This field is required' },
     { name: 'email', message: 'Please enter a valid Email' },
-    { name: 'url', message: 'Please enter a valid URL' },
+    { name: 'url', message: 'Please enter a valid URL' }
     /*
     {
       name: 'min',
@@ -117,5 +114,5 @@ export const config = {
     },
     */
   ],
-  extras: { lazyRender: true },
+  extras: { lazyRender: true }
 };

@@ -1,0 +1,72 @@
+@import "../../../styles/core/variables";
+
+.form-field {
+  margin: $field-spacing 0;
+  &.has-error {
+    &,
+    label {
+      color: $error-color;
+    }
+  }
+}
+.form-field-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: $field-size;
+  background-color: $field-bg;
+  border: $field-border-width solid $field-border-color;
+  border-radius: $field-border-radius;
+  &:focus-within {
+    color: inherit;
+    background-color: $field-bg;
+    border-color: $field-accent-color;
+    box-shadow: 0 0 0.4em $field-accent-color;
+    outline: 0;
+  }
+}
+.form-field-inner {
+  flex: 1;
+}
+.form-field-addon {
+  color: $field-color;
+  font-size: $field-size;
+  line-height: 0;
+  padding: 0 0.5em;
+}
+label {
+  display: block;
+  color: $field-label-color;
+  font-size: $field-label-size;
+  margin-bottom: calc(#{$field-spacing}/ 2.3);
+}
+:host ::ng-deep {
+  .form-control {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5em;
+    font-family: $font-family;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: $line-height;
+    color: $field-color;
+    background-color: transparent;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:focus {
+      outline: 0;
+    }
+    &::placeholder {
+      opacity: 1;
+      color: $field-placeholder-color;
+    }
+    &.is-invalid,
+    &.is-invalid:focus {
+      border-color: $error-color;
+      color: $error-color;
+    }
+  }
+}
