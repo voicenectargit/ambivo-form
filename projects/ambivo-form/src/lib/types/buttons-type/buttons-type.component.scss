@@ -1,30 +1,32 @@
 @import "../../../styles/core/variables";
+@import "../../../styles/core/mixins";
 
-.am-buttons-wrapper {
+
+.am-field-buttons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 -0.5em;
+  margin: 0 $gap/2 * -1;
 }
-.am-buttons-option {
-  padding: 0.5em;
+.am-field-buttons-option {
+  padding: $gap/2;
   button {
     display: block;
     width: 100%;
     text-align: center;
     font-size: $field-size;
-    padding: $field-size 3em;
+    padding: $field-padding calc(#{$field-padding} * 2);
     background: $field-bg;
     color: $field-color;
     border: $field-border-width solid $field-border-color;
     border-radius: $field-border-radius;
     cursor: pointer;
     &.am-button-selected {
-      background: $color-accent;
-      mix-blend-mode: difference;
+      background: $field-accent-color;
       color: #fff;
     }
     &:focus {
+      @include outline($field-accent-color);
       outline: none;
     }
   }

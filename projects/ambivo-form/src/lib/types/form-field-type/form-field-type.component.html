@@ -1,20 +1,20 @@
-<div class="form-field" [class.has-error]="showError">
+<div class="am-form-field" [class.has-error]="showError">
   <label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
     {{ to.label }}
     <span *ngIf="to.required && to.hideRequiredMarker !== true">*</span>
   </label>
-  <div class="form-field-wrapper">
-    <div class="form-field-inner">
+  <div class="am-form-field-wrapper">
+    <div class="am-form-field-inner">
       <ng-template #fieldComponent></ng-template>
     </div>
-    <div class="form-field-addon" *ngIf="to.icon">
-      <svg-icon [key]="to.icon"></svg-icon>
+    <div class="am-form-field-addon" *ngIf="to.icon">
+      <svg-icon>{{ to.icon }}</svg-icon>
     </div>
   </div>
-  <div *ngIf="showError" class="invalid-feedback" [style.display]="'block'">
+  <div *ngIf="showError" class="am-field-error" [style.display]="'block'">
     <formly-validation-message [field]="field"></formly-validation-message>
   </div>
-  <small *ngIf="to.description" class="form-text text-muted">
+  <small *ngIf="to.description" class="am-field-description">
     {{ to.description }}
   </small>
 </div>

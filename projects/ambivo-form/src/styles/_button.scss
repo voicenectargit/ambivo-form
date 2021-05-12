@@ -1,6 +1,6 @@
-@import './core/variables';
+@import "./core/variables";
 
-.ambivo-form--button {
+.am-button {
   position: relative;
   padding: 0.8em 2em;
   font-size: $button-size;
@@ -21,6 +21,7 @@
       left: 0;
       right: 0;
       background-color: rgba(255, 255, 255, 0.4);
+      border-radius: $button-border-radius;
     }
   }
 }

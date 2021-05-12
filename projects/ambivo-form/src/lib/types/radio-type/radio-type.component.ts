@@ -5,12 +5,12 @@ import { FieldType } from '@ngx-formly/core';
   selector: 'radio-type',
   templateUrl: './radio-type.component.html',
   styleUrls: ['./radio-type.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RadioTypeComponent extends FieldType {
   defaultOptions = {
     templateOptions: {
-      options: [],
-    },
+      options: []
+    }
   };
 }

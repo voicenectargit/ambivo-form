@@ -1,7 +1,7 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
+  ChangeDetectorRef
 } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 import { SnackbarService } from '../../snackbar/snackbar.service';
@@ -11,15 +11,9 @@ import { FileTypeService } from './file-type.service';
   selector: 'file-type',
   templateUrl: './file-type.component.html',
   styleUrls: ['./file-type.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FileTypeComponent extends FieldType {
-  defaultOptions = {
-    templateOptions: {
-      icon: 'attach',
-    },
-  };
-
   constructor(
     private cd: ChangeDetectorRef,
     private snackbar: SnackbarService,
@@ -53,7 +47,7 @@ export class FileTypeComponent extends FieldType {
       reader.onerror = () =>
         this.snackbar.show(reader.error.message, {
           type: 'error',
-          title: 'Error',
+          title: 'Error'
         });
       reader.readAsDataURL(file);
     }

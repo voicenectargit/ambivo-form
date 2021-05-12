@@ -1,18 +1,19 @@
 <!-- Progress bar -->
-<div *ngIf="field.fieldGroup[currentStep] as step">
-  <div class="ambivo-form--step-header">
-    <div class="ambivo-form--step-title">
-      {{ step.templateOptions.label }}
-      <small>({{ currentStep + 1 }} of {{ length }} )</small>
-    </div>
-    <div
-      class="ambivo-form--step-description"
-      *ngIf="step.templateOptions.description as description"
-    >
-      {{ description }}
-    </div>
+<div class="am-stepper-header" *ngIf="field.fieldGroup[currentStep] as step">
+  <div class="am-stepper-title">
+    <ng-container *ngIf="step.templateOptions.icon as icon">
+      <svg-icon>{{ icon }}</svg-icon>
+    </ng-container>
+    {{ step.templateOptions.label }}
+    <span>({{ currentStep + 1 }} of {{ length }} )</span>
   </div>
-  <div class="ambivo-form--progress">
+  <div
+    class="am-stepper-text"
+    *ngIf="step.templateOptions.description as description"
+  >
+    <div [innerHtml]="description"></div>
+  </div>
+  <div class="am-stepper-progress">
     <span [style.width]="((currentStep + 1) / length) * 100 + '%'"></span>
   </div>
 </div>
@@ -21,15 +22,15 @@
 <ng-container
   *ngFor="let step of field.fieldGroup; let index = index; let last = last"
 >
-  <div class="ambivo-form--step" *ngIf="index === currentStep">
+  <div class="am-stepper-step" *ngIf="index === currentStep">
     <!-- Step fields -->
     <formly-field [field]="step"></formly-field>
 
     <!-- Actions -->
-    <div class="ambivo-form--actions">
+    <div class="am-stepper-actions">
       <button
         type="button"
-        class="ambivo-form--button"
+        class="am-button"
         *ngIf="index !== 0"
         (click)="prev()"
       >
@@ -38,7 +39,7 @@
 
       <button
         type="button"
-        class="ambivo-form--button"
+        class="am-button"
         *ngIf="!last"
         (click)="next()"
         [disabled]="!isValid(step)"
@@ -49,7 +50,7 @@
       <ng-container *ngIf="widget$ | async as widget">
         <button
           *ngIf="last"
-          class="ambivo-form--button"
+          class="am-button"
           [disabled]="!form.valid"
           type="submit"
           (click)="submit(widget)"

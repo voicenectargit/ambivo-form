@@ -1,9 +1,47 @@
 @import "../../../styles/core/variables";
+@import "../../../styles/core/mixins";
 
-label {
-  display: block;
+.am-form-check {
   color: $field-label-color;
-  font-size: $field-label-size;
-  margin-bottom: calc(#{$field-spacing}/ 2.3);
+  display: flex;
+  align-items: center;
+  margin: $field-spacing 0;
+  label {
+    display: inline-block;
+    margin: 0;
+  }
 }
-
+.am-form-check-inline {
+  display: inline-flex;
+  margin-right: $field-spacing;
+}
+.am-form-check-input {
+  font-size: $field-size;
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: top;
+  margin: 0 .8em 0 0;
+  background-color: $field-bg;
+  border: $field-border-width solid $field-border-color;
+  border-radius: $field-border-radius;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &[type="radio"] {
+    border-radius: 100%;
+  }
+  &:focus {
+    outline: 0;
+    @include outline($field-accent-color);
+  }
+  &:checked {
+    background-color: $field-accent-color;
+    border-color: $field-accent-color;
+    &[type="checkbox"] {
+      background-image: $checkbox-bg;
+    }
+    &[type="radio"] {
+      background-image: $radio-bg;
+    }
+  }
+}

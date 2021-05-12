@@ -1,13 +1,13 @@
-<label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
+<label class="am-field-label" *ngIf="to.label && to.hideLabel !== true">
   {{ to.label }}
   <span *ngIf="to.required && to.hideRequiredMarker !== true">*</span>
 </label>
 
-<div class="am-buttons-wrapper">
+<div class="am-field-buttons">
   <ng-container
     *ngFor="let option of to.options | formlySelectOptions: field | async"
   >
-    <div class="am-buttons-option">
+    <div class="am-field-buttons-option">
       <button
         type="button"
         (click)="select(option.value)"

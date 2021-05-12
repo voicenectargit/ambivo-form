@@ -24,24 +24,6 @@
             }
           }
         },
-        "generate-icons": {
-          "builder": "@angular-extensions/svg-icons-builder:svg-icons-object-builder",
-          "options": {
-            "conversionType": "object",
-            "srcFiles": ["projects/ambivo-form/src/assets/icons/*.svg"],
-            "outputDirectory": "projects/ambivo-form/src/lib/svg-icon",
-            "fileName": "svg-icons",
-            "objectName": "svgIcons",
-            "svgoConfig": {
-              "plugins": [
-                {
-                  "removeDimensions": true,
-                  "cleanupAttrs": true
-                }
-              ]
-            }
-          }
-        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

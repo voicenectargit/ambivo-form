@@ -1,24 +1,23 @@
 @import "./core/variables";
 
-formly-form,
-formly-group {
+.am-row {
   display: flex;
   flex-wrap: wrap;
   margin: 0 calc(#{$gap} * -1);
   clear: none;
-}
-formly-field {
-  width: 100%;
-  padding: 0 $gap;
-  @media (min-width: 768px) {
-    &.am-col-33 {
-      width: 33.3333%;
-    }
-    &.am-col-50 {
-      width: 50%;
-    }
-    &.am-col-66 {
-      width: 66.666%;
+  & > * {
+    width: 100%;
+    padding: 0 $gap;
+    @media (min-width: 768px) {
+      &.am-col-33 {
+        width: 33.3333%;
+      }
+      &.am-col-50 {
+        width: 50%;
+      }
+      &.am-col-66 {
+        width: 66.666%;
+      }
     }
   }
 }

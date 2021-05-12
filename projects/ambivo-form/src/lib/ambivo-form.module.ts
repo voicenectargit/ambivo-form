@@ -21,6 +21,8 @@ import { FontLoaderComponent } from './font-loader/font-loader.component';
 import { FileTypeComponent } from './types/file-type/file-type.component';
 import { SvgIconComponent } from './svg-icon/svg-icon.component';
 import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.component';
+import { StepTypeComponent } from './types/step-type/step-type.component';
+import { ImageTypeComponent } from './types/image-type/image-type.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.componen
     FileTypeComponent,
     SvgIconComponent,
     ButtonsTypeComponent,
+    StepTypeComponent,
+    ImageTypeComponent
   ],
   imports: [
     CommonModule,
@@ -46,8 +50,8 @@ import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.componen
     HttpClientModule,
     FormlySelectModule,
     FormlyModule.forChild(),
-    CurrencyMaskModule,
+    CurrencyMaskModule
   ],
-  exports: [AmbivoFormComponent],
+  exports: [AmbivoFormComponent]
 })
 export class AmbivoFormModule {}

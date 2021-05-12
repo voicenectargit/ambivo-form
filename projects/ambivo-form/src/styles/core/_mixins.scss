@@ -1,0 +1,14 @@
+@mixin outline($color) {
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 0 0 4px $color;
+    border-radius: inherit;
+    opacity: 0.25;
+  }
+}

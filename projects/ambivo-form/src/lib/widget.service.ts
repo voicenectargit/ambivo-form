@@ -7,7 +7,7 @@ import { WidgetInterface } from './widget.interface';
 import { SnackbarService } from './snackbar/snackbar.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class WidgetService {
   apiUrl = 'https://goferapi.ambivo.com';
@@ -25,34 +25,39 @@ export class WidgetService {
     return this.http
       .get<any>(`${this.apiUrl}/public/widget`, { params })
       .pipe(
-        switchMap((response) => {
+        switchMap(response => {
           if (!response?.widget_list?.length) {
             return throwError('Widget not found');
           }
           return of(response);
         }),
-        catchError((error) => this._catchError(error)),
-        map((response) => response.widget_list[0]),
-        tap((widget) => this._widget.next(widget))
+        catchError(error => this._catchError(error)),
+        map(response => response.widget_list[0]),
+        tap(widget => this._widget.next(widget))
       );
   }
 
   setWidget(widget: WidgetInterface): void {
-    this._widget.next(widget ? JSON.parse(JSON.stringify(widget)) : undefined);
+    this._widget.next(widget);
   }
 
-  executeWidget(id: string, token: string, payload: any): Observable<any> {
+  executeWidget(widget: WidgetInterface, payload: any): Observable<any> {
     const origin = window?.location?.href;
-    const body = { widget_id: id, token, payload, origin_url: origin };
+    const body = {
+      widget_id: widget.id,
+      token: widget.body.token,
+      payload,
+      origin_url: origin
+    };
 
     return this.http.post<any>(`${this.apiUrl}/public/widget`, body).pipe(
-      switchMap((response) => {
+      switchMap(response => {
         if (response.result !== 1) {
           return throwError(response.error);
         }
         return of(response);
       }),
-      catchError((error) => this._catchError(error))
+      catchError(error => this._catchError(error))
     );
   }
 

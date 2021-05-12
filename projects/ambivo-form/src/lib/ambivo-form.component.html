@@ -1,38 +1,46 @@
 <ng-container *ngIf="widget$ | async as widget">
-  <ng-container *ngIf="widget.body as data">
+  <div class="am-form-wrapper" *ngIf="widget.body as data">
     <!-- Font -->
-    <ng-container *ngIf="data.styling">
-      <font-loader [font]="data.styling['--font-family']"></font-loader>
+    <ng-container *ngIf="data.theme">
+      <font-loader [font]="data.theme['--font-family']"></font-loader>
     </ng-container>
 
-    <div class="ambivo-form" [style.width]="width" [style]="data.styling">
+    <div class="am-form" [style]="data.theme">
       <!-- Header -->
-      <div class="ambivo-form--header" *ngIf="data.title as title">
-        <img [src]="logo" *ngIf="data.logo as logo" class="ambivo-form--logo" />
+      <div class="am-form-header" *ngIf="data.title as title">
+        <img [src]="logo" *ngIf="data.logo as logo" class="am-form-logo" />
+
         <div>
-          <div class="ambivo-form--title">{{ title }}</div>
-          <div class="ambivo-form--subtitle" *ngIf="data.subtitle as subtitle">
-            {{ subtitle }}
+          <div class="am-form-title">{{ title }}</div>
+          <div class="am-form-subtitle" *ngIf="data.subtitle as subtitle">
+            <div [innerHtml]="subtitle"></div>
           </div>
         </div>
       </div>
 
       <!-- Form -->
       <form [formGroup]="form" (ngSubmit)="submit()">
-        <formly-form [form]="form" [fields]="data.fields" [model]="model">
+        <formly-form
+          [form]="form"
+          [fields]="data.fields"
+          [model]="model"
+          [class.am-row]="!data?.multistep"
+        >
         </formly-form>
 
-        <!-- Submit -->
-        <button
-          type="submit"
-          class="ambivo-form--button"
-          (click)="submit(widget)"
-          [disabled]="!widget.id || !form.valid || isLoading"
-          *ngIf="!data.multistep"
-        >
-          {{ data.submit }}
-        </button>
+        <div class="am-form-actions">
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="am-button"
+            (click)="submit(widget)"
+            [disabled]="!widget.id || !form.valid || isLoading"
+            *ngIf="!data.multistep"
+          >
+            {{ data.submit }}
+          </button>
+        </div>
       </form>
     </div>
-  </ng-container>
+  </div>
 </ng-container>

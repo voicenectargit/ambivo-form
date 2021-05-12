@@ -1,21 +1,25 @@
-$color-accent: var(--color-accent, #7d3ea1);
 $default-text-size: 18px;
 $default-text-color: #444;
 $line-height: 1.5;
 
 // Container
-$font-family: var(--font-family, "inherit");
+$font-family: var(--font-family, inherit);
 $container-bg: var(--container-bg, transparent);
 $container-spacing: calc(var(--container-spacing, 24) * 1px);
 $container-border-radius: var(--container-border-radius, 0);
 $container-border-width: var(--container-border-width, 0);
 $container-border-color: var(--container-border-color, transparent);
+$container-width: var(--container-width, 600px);
+$container-align: var(--container-align, center);
 // Header
 $header-spacing: calc(var(--header-spacing, 24) * 1px);
 $title-color: var(--title-color, $default-text-color);
 $title-size: var(--title-size, $default-text-size * 2);
-$subtitle-color: var(--subtitle-color, $default-text-color);
-$subtitle-size: var(--subtitle-size, $default-text-size);
+$text-size: var(--text-size, $default-text-size);
+$text-color: var(--text-color, #444);
+// Stepper
+$stepper-progress-color: var(--stepper-progress-color, #7d3ea1);
+$stepper-spacing: calc(var(--stepper-spacing, 18) * 1px);
 // Fields
 $field-size: var(--field-size, $default-text-size);
 $field-color: var(--field-color, $default-text-color);
@@ -26,17 +30,15 @@ $field-border-width: var(--field-border-width, 1px);
 $field-border-color: var(--field-border-color, #ced4da);
 $field-border-radius: var(--field-border-radius, 6px);
 $field-placeholder-color: var(--field-placeholder-color, #aaa);
-$field-spacing: calc(var(--field-spacing, 18) * 1px);
+$field-padding: calc(var(--field-padding, 12) * 1px);
+$field-spacing: calc(var(--field-spacing, 9) * 1px);
 $field-accent-color: var(--field-accent-color, #7d3ea1);
+$field-error-color: var(--field-error-color, #dc3545);
 // Buttons
-$button-spacing: calc(var(--button-spacing, 18) * 1px);
 $button-size: var(--button-size, default-text-size);
 $button-bg: var(--button-bg, #7d3ea1);
 $button-color: var(--button-color, #fff);
 $button-border-radius: var(--button-border-radius, 6px);
-// Error
-$success-color: var(--success-color, #198754);
-$error-color: var(--error-color, #dc3545);
 // Layout
 $gap: 16px;
 

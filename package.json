@@ -9,8 +9,7 @@
     "build": "npm run build:element && npm run build:library",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "generate-icons": "ng run ambivo-form:generate-icons"
+    "e2e": "ng e2e"
   },
   "private": false,
   "dependencies": {
@@ -31,7 +30,6 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.8",
     "@angular-devkit/build-ng-packagr": "~0.1000.8",
-    "@angular-extensions/svg-icons-builder": "^1.1.0",
     "@angular/cli": "~10.0.5",
     "@angular/compiler-cli": "~10.0.6",
     "@ngx-formly/core": "^5.10.18",

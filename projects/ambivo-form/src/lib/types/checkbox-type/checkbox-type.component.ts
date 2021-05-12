@@ -5,13 +5,13 @@ import { FieldType } from '@ngx-formly/core';
   selector: 'checkbox-type',
   templateUrl: './checkbox-type.component.html',
   styleUrls: ['./checkbox-type.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckboxTypeComponent extends FieldType {
   defaultOptions = {
     templateOptions: {
       indeterminate: true,
-      hideLabel: true,
-    },
+      hideLabel: true
+    }
   };
 }

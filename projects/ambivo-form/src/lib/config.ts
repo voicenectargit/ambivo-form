@@ -8,10 +8,12 @@ import { CheckboxTypeComponent } from './types/checkbox-type/checkbox-type.compo
 import { RadioTypeComponent } from './types/radio-type/radio-type.component';
 import { FormFieldTypeComponent } from './types/form-field-type/form-field-type.component';
 import { DateTypeComponent } from './types/date-type/date-type.component';
-import { timezones } from './utils/timezones';
 import { MoneyTypeComponent } from './types/money-type/money-type.component';
 import { FileTypeComponent } from './types/file-type/file-type.component';
 import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.component';
+import { StepTypeComponent } from './types/step-type/step-type.component';
+import { timezones } from './utils/timezones';
+import { ImageTypeComponent } from './types/image-type/image-type.component';
 
 export const config = {
   types: [
@@ -36,6 +38,10 @@ export const config = {
       component: StepperTypeComponent
     },
     {
+      name: 'step',
+      component: StepTypeComponent
+    },
+    {
       name: 'number',
       component: InputTypeComponent,
       wrappers: ['form-field'],
@@ -45,14 +51,13 @@ export const config = {
       name: 'phone',
       component: InputTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { minLength: 8, icon: 'phone' } }
+      defaultOptions: { templateOptions: { minLength: 8 } }
     },
     {
       name: 'email',
       component: InputTypeComponent,
       wrappers: ['form-field'],
       defaultOptions: {
-        templateOptions: { icon: 'email' },
         validators: { validation: ['email'] }
       }
     },
@@ -61,8 +66,7 @@ export const config = {
       component: InputTypeComponent,
       wrappers: ['form-field'],
       defaultOptions: {
-        templateOptions: { icon: 'url' },
-        validators: { validation: ['url'] }
+        ralidators: { validation: ['url'] }
       }
     },
     {
@@ -78,18 +82,32 @@ export const config = {
       defaultOptions: { templateOptions: { enableTime: true } }
     },
     {
+      name: 'timezone',
+      component: SelectTypeComponent,
+      wrappers: ['form-field'],
+      defaultOptions: {
+        templateOptions: {
+          options: timezones.map(v => ({ value: v }))
+        }
+      }
+    },
+    {
       name: 'money',
       component: MoneyTypeComponent,
       wrappers: ['form-field'],
       defaultOptions: { templateOptions: { currency: '$' } }
     },
     { name: 'file', component: FileTypeComponent, wrappers: ['form-field'] },
-    { name: 'buttons', component: ButtonsTypeComponent }
+    { name: 'buttons', component: ButtonsTypeComponent },
+    { name: 'image', component: ImageTypeComponent }
   ],
   wrappers: [{ name: 'form-field', component: FormFieldTypeComponent }],
   validators: [
     { name: 'email', validation: CustomEmailValidator },
-    { name: 'url', validation: UrlValidator }
+    {
+      name: 'url',
+      validation: UrlValidator
+    }
   ],
   validationMessages: [
     { name: 'required', message: 'This field is required' },

@@ -4,7 +4,7 @@ $info-color: #5bc0de;
 $error-color: #c9302c;
 $border-radius: 6px;
 
-.ambivo-form--snackbar {
+.am-snackbar {
   position: fixed;
   bottom: $spacer * 2;
   right: $spacer * 2;
@@ -22,17 +22,17 @@ $border-radius: 6px;
   color: #fff;
   font-size: 18px;
   font-family: 'Arial';
-  .snackbar-title{
+  .am-snackbar-title{
     font-size: 2em;
   }
 
-  &.snackbar-info {
+  &.am-snackbar-info {
     background-color: $info-color;
   }
-  &.snackbar-success {
+  &.am-snackbar-success {
     background-color: $success-color;
   }
-  &.snackbar-error {
+  &.am-snackbar-error {
     background-color: $error-color;
   }
 }

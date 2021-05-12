@@ -1,33 +1,40 @@
 @import "../../../styles/core/variables";
 
-.ambivo-form--step-header{
-  margin-bottom: $container-spacing;
+.am-stepper-header {
+  color: $text-color;
+  font-size: $text-size;
+  margin-bottom: $stepper-spacing;
 }
-.ambivo-form--step-title{
+.am-stepper-title {
   font-weight: bold;
-  font-size: 24px;
+  font-size: calc(#{$title-size} * 0.6);
   color: $title-color;
-  small{
+  line-height: 1.3;
+  svg-icon {
+    font-size: 1.3em;
+    display: inline;
+    vertical-align: middle;
+  }
+  span {
     white-space: nowrap;
   }
 }
-.ambivo-form--step-description{
-  color: $subtitle-color;
-}
-.ambivo-form--actions {
+.am-stepper-actions {
   display: flex;
   flex-direction: row;
+  margin-top: calc(#{$field-spacing} * 2);
   > button:not(:last-child) {
-    margin-right: $button-spacing;
+    margin-right: 1em;
   }
 }
-.ambivo-form--progress {
+.am-stepper-progress {
   height: 4px;
   background: #ddd;
+  margin-top: 1em;
   span {
     display: block;
     height: 100%;
-    background: $success-color;
+    background: $stepper-progress-color;
     transition: width 0.3s ease;
   }
 }

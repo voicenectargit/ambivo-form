@@ -5,8 +5,8 @@ export interface WidgetInterface {
   name: string;
   type: string;
   description: string;
-  token?: string;
   body: {
+    token?: string;
     title?: string;
     subtitle?: string;
     submit: string;
@@ -15,7 +15,7 @@ export interface WidgetInterface {
     actions?: string[];
     multistep?: boolean;
     fields: FormlyFieldConfig[];
-    styling?: any;
+    theme?: any;
     logo?: string;
   };
 }

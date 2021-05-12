@@ -24,11 +24,19 @@ export class AppComponent {
           type: 'stepper',
           fieldGroup: [
             {
+              type: 'step',
               templateOptions: {
                 label: 'First step',
                 description: 'Hello world'
               },
               fieldGroup: [
+                {
+                  key: 'attachment',
+                  type: 'file',
+                  templateOptions: {
+                    label: 'File'
+                  }
+                },
                 {
                   key: 'buttons',
                   type: 'buttons',
@@ -153,7 +161,7 @@ export class AppComponent {
           ]
         }
       ],
-      styling: {
+      theme: {
         '--font-family': "'Roboto', sans-serif"
       },
       logo:

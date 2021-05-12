@@ -1,31 +1,29 @@
-<label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
+<div class="am-field-label" *ngIf="to.label && to.hideLabel !== true">
   {{ to.label }}
   <span *ngIf="to.required && to.hideRequiredMarker !== true">*</span>
-</label>
+</div>
 
-<div>
-  <div
-    class="form-check"
-    [class.form-check-inline]="to.viewMode === 'inline'"
-    *ngFor="
-      let option of to.options | formlySelectOptions: field | async;
-      let i = index
-    "
-  >
-    <input
-      type="radio"
-      [id]="id + '_' + i"
-      class="form-check-input"
-      [name]="field.name || id"
-      [class.is-invalid]="showError"
-      [attr.value]="option.value"
-      [value]="option.value"
-      [formControl]="formControl"
-      [formlyAttributes]="field"
-      [attr.disabled]="option.disabled || formControl.disabled ? true : null"
-    />
-    <label [for]="id + '_' + i">
-      {{ option.label }}
-    </label>
-  </div>
+<div
+  class="am-form-check"
+  [class.am-form-check-inline]="to.viewMode === 'inline'"
+  *ngFor="
+    let option of to.options | formlySelectOptions: field | async;
+    let i = index
+  "
+>
+  <input
+    type="radio"
+    [id]="id + '_' + i"
+    class="am-form-check-input"
+    [name]="field.name || id"
+    [class.is-invalid]="showError"
+    [attr.value]="option.value"
+    [value]="option.value"
+    [formControl]="formControl"
+    [formlyAttributes]="field"
+    [attr.disabled]="option.disabled || formControl.disabled ? true : null"
+  />
+  <label [for]="id + '_' + i">
+    {{ option.label }}
+  </label>
 </div>

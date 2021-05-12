@@ -5,12 +5,13 @@ import {
   OnChanges,
   SimpleChanges,
   Inject,
+  ChangeDetectorRef
 } from '@angular/core';
 import {
   FormlyConfig,
   FORMLY_CONFIG,
   FormlyModule,
-  ConfigOption,
+  ConfigOption
 } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -26,8 +27,8 @@ const providers = FormlyModule.forRoot(config).providers;
   selector: 'ambivo-form',
   templateUrl: './ambivo-form.component.html',
   styleUrls: ['./ambivo-form.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [...providers],
+  encapsulation: ViewEncapsulation.ShadowDom,
+  providers: [...providers]
 })
 export class AmbivoFormComponent implements OnChanges {
   model = {};
@@ -37,7 +38,6 @@ export class AmbivoFormComponent implements OnChanges {
   @Input() id: string;
   @Input() token: string;
   @Input() debug: WidgetInterface;
-  @Input() width = '100%';
 
   constructor(
     private widgetService: WidgetService,
@@ -45,7 +45,7 @@ export class AmbivoFormComponent implements OnChanges {
     @Inject(FormlyConfig) formlyConfig: FormlyConfig,
     @Inject(FORMLY_CONFIG) formlyConfigOptions: ConfigOption[]
   ) {
-    formlyConfigOptions.forEach((o) => formlyConfig.addConfig(o));
+    formlyConfigOptions.forEach(o => formlyConfig.addConfig(o));
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -61,7 +61,7 @@ export class AmbivoFormComponent implements OnChanges {
     this.isLoading = true;
 
     this.widgetService
-      .executeWidget(widget.id, this.token, this.model)
+      .executeWidget(widget, this.model)
       .pipe(take(1))
       .subscribe(() => this.onSuccess(widget))
       .add(() => (this.isLoading = false));
@@ -74,7 +74,7 @@ export class AmbivoFormComponent implements OnChanges {
     } else {
       this.snackarService.show(widget.body?.message, {
         title: 'Submitted!',
-        type: 'success',
+        type: 'success'
       });
     }
   }

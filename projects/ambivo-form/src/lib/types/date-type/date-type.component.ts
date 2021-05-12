@@ -15,23 +15,15 @@ import flatpickr from 'flatpickr';
   encapsulation: ViewEncapsulation.None
 })
 export class DateTypeComponent extends FieldType implements AfterViewInit {
-  defaultOptions = {
-    templateOptions: {
-      icon: 'date'
-    }
-  };
-  options: any;
   private instance: flatpickr.Instance;
   @ViewChild('element') elementRef: ElementRef;
 
   ngAfterViewInit(): void {
-    this.options = {
+    const options = {
       minDate: this.to.minDate,
       maxDate: this.to.maxDate,
-      enabmeTime: this.to.enableTime,
-      position: 'auto right'
+      enableTime: this.to.enableTime
     };
-
-    this.instance = flatpickr(this.elementRef.nativeElement, this.options);
+    this.instance = flatpickr(this.elementRef.nativeElement, options);
   }
 }
