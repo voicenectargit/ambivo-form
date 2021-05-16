@@ -1,0 +1,22 @@
+<label class="am-field-label" *ngIf="to.label && to.hideLabel !== true">
+  {{ to.label }}
+  <span *ngIf="to.required && to.hideRequiredMarker !== true">*</span>
+</label>
+
+<div
+  class="am-form-check"
+  [class.am-form-check-inline]="to.viewMode === 'inline'"
+  *ngFor="let option of to.options | formlySelectOptions: field | async"
+>
+  <input
+    type="checkbox"
+    class="am-form-check-input"
+    [checked]="isSelected(option.value)"
+    [formlyAttributes]="field"
+    [value]="option.value"
+    (change)="select(option.value)"
+  />
+  <label>
+    {{ option.label }}
+  </label>
+</div>

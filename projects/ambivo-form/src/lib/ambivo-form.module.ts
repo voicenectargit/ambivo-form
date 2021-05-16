@@ -24,6 +24,7 @@ import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.componen
 import { StepTypeComponent } from './types/step-type/step-type.component';
 import { ImageTypeComponent } from './types/image-type/image-type.component';
 import { GalleryTypeComponent } from './types/gallery-type/gallery-type.component';
+import { MulticheckboxTypeComponent } from './types/multicheckbox-type/multicheckbox-type.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { GalleryTypeComponent } from './types/gallery-type/gallery-type.componen
     ButtonsTypeComponent,
     StepTypeComponent,
     ImageTypeComponent,
-    GalleryTypeComponent
+    GalleryTypeComponent,
+    MulticheckboxTypeComponent,
   ],
   imports: [
     CommonModule,
@@ -52,8 +54,8 @@ import { GalleryTypeComponent } from './types/gallery-type/gallery-type.componen
     HttpClientModule,
     FormlySelectModule,
     FormlyModule.forChild(),
-    CurrencyMaskModule
+    CurrencyMaskModule,
   ],
-  exports: [AmbivoFormComponent]
+  exports: [AmbivoFormComponent],
 })
 export class AmbivoFormModule {}

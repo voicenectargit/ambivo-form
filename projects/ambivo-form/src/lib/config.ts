@@ -15,6 +15,7 @@ import { StepTypeComponent } from './types/step-type/step-type.component';
 import { timezones } from './utils/timezones';
 import { ImageTypeComponent } from './types/image-type/image-type.component';
 import { GalleryTypeComponent } from './types/gallery-type/gallery-type.component';
+import { MulticheckboxTypeComponent } from './types/multicheckbox-type/multicheckbox-type.component';
 
 export const config = {
   types: [
@@ -32,6 +33,10 @@ export const config = {
     {
       name: 'checkbox',
       component: CheckboxTypeComponent,
+    },
+    {
+      name: 'multicheckbox',
+      component: MulticheckboxTypeComponent,
     },
     { name: 'radio', component: RadioTypeComponent },
     {

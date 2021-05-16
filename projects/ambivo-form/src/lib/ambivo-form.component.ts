@@ -5,13 +5,12 @@ import {
   OnChanges,
   SimpleChanges,
   Inject,
-  ChangeDetectorRef
 } from '@angular/core';
 import {
   FormlyConfig,
   FORMLY_CONFIG,
   FormlyModule,
-  ConfigOption
+  ConfigOption,
 } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -28,7 +27,7 @@ const providers = FormlyModule.forRoot(config).providers;
   templateUrl: './ambivo-form.component.html',
   styleUrls: ['./ambivo-form.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
-  providers: [...providers]
+  providers: [...providers],
 })
 export class AmbivoFormComponent implements OnChanges {
   model = {};
@@ -45,7 +44,7 @@ export class AmbivoFormComponent implements OnChanges {
     @Inject(FormlyConfig) formlyConfig: FormlyConfig,
     @Inject(FORMLY_CONFIG) formlyConfigOptions: ConfigOption[]
   ) {
-    formlyConfigOptions.forEach(o => formlyConfig.addConfig(o));
+    formlyConfigOptions.forEach((o) => formlyConfig.addConfig(o));
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -55,6 +54,8 @@ export class AmbivoFormComponent implements OnChanges {
     } else {
       this.widget$ = this.widgetService.getWidget(this.id, this.token);
     }
+    this.model = {};
+    this.form.reset();
   }
 
   submit(widget: WidgetInterface): void {
@@ -74,7 +75,7 @@ export class AmbivoFormComponent implements OnChanges {
     } else {
       this.snackarService.show(widget.body?.message, {
         title: 'Submitted!',
-        type: 'success'
+        type: 'success',
       });
     }
   }

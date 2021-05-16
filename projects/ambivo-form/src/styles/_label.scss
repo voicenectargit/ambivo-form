@@ -1,6 +1,7 @@
 @import "./core/variables";
 
 .am-field-label{
+  display: block;
   color: $field-label-color;
   font-size: $field-label-size;
   margin-bottom: calc(#{$field-spacing}/ 2.3);
