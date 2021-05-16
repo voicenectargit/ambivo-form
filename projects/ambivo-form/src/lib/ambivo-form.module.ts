@@ -23,6 +23,7 @@ import { SvgIconComponent } from './svg-icon/svg-icon.component';
 import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.component';
 import { StepTypeComponent } from './types/step-type/step-type.component';
 import { ImageTypeComponent } from './types/image-type/image-type.component';
+import { GalleryTypeComponent } from './types/gallery-type/gallery-type.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ImageTypeComponent } from './types/image-type/image-type.component';
     SvgIconComponent,
     ButtonsTypeComponent,
     StepTypeComponent,
-    ImageTypeComponent
+    ImageTypeComponent,
+    GalleryTypeComponent
   ],
   imports: [
     CommonModule,

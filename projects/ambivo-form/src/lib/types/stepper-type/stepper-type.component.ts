@@ -10,7 +10,7 @@ import { AmbivoFormComponent } from '../../ambivo-form.component';
   selector: 'stepper-type',
   templateUrl: './stepper-type.component.html',
   styleUrls: ['./stepper-type.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StepperTypeComponent extends FieldType {
   widget$: Observable<WidgetInterface>;
@@ -32,7 +32,7 @@ export class StepperTypeComponent extends FieldType {
     if (field.key) {
       return field.formControl.valid;
     }
-    return field.fieldGroup.every(f => this.isValid(f));
+    return field.fieldGroup.every((f) => this.isValid(f));
   }
 
   next(): void {

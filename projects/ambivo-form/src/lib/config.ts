@@ -14,6 +14,7 @@ import { ButtonsTypeComponent } from './types/buttons-type/buttons-type.componen
 import { StepTypeComponent } from './types/step-type/step-type.component';
 import { timezones } from './utils/timezones';
 import { ImageTypeComponent } from './types/image-type/image-type.component';
+import { GalleryTypeComponent } from './types/gallery-type/gallery-type.component';
 
 export const config = {
   types: [
@@ -21,65 +22,65 @@ export const config = {
     {
       name: 'textarea',
       component: TextareaTypeComponent,
-      wrappers: ['form-field']
+      wrappers: ['form-field'],
     },
     {
       name: 'select',
       component: SelectTypeComponent,
-      wrappers: ['form-field']
+      wrappers: ['form-field'],
     },
     {
       name: 'checkbox',
-      component: CheckboxTypeComponent
+      component: CheckboxTypeComponent,
     },
     { name: 'radio', component: RadioTypeComponent },
     {
       name: 'stepper',
-      component: StepperTypeComponent
+      component: StepperTypeComponent,
     },
     {
       name: 'step',
-      component: StepTypeComponent
+      component: StepTypeComponent,
     },
     {
       name: 'number',
       component: InputTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { type: 'number' } }
+      defaultOptions: { templateOptions: { type: 'number' } },
     },
     {
       name: 'phone',
       component: InputTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { minLength: 8 } }
+      defaultOptions: { templateOptions: { minLength: 8 } },
     },
     {
       name: 'email',
       component: InputTypeComponent,
       wrappers: ['form-field'],
       defaultOptions: {
-        validators: { validation: ['email'] }
-      }
+        validators: { validation: ['email'] },
+      },
     },
     {
       name: 'url',
       component: InputTypeComponent,
       wrappers: ['form-field'],
       defaultOptions: {
-        ralidators: { validation: ['url'] }
-      }
+        ralidators: { validation: ['url'] },
+      },
     },
     {
       name: 'date',
       component: DateTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { enableTime: false } }
+      defaultOptions: { templateOptions: { enableTime: false } },
     },
     {
       name: 'datetime',
       component: DateTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { enableTime: true } }
+      defaultOptions: { templateOptions: { enableTime: true } },
     },
     {
       name: 'timezone',
@@ -87,32 +88,33 @@ export const config = {
       wrappers: ['form-field'],
       defaultOptions: {
         templateOptions: {
-          options: timezones.map(v => ({ value: v }))
-        }
-      }
+          options: timezones.map((v) => ({ value: v })),
+        },
+      },
     },
     {
       name: 'money',
       component: MoneyTypeComponent,
       wrappers: ['form-field'],
-      defaultOptions: { templateOptions: { currency: '$' } }
+      defaultOptions: { templateOptions: { currency: '$' } },
     },
     { name: 'file', component: FileTypeComponent, wrappers: ['form-field'] },
     { name: 'buttons', component: ButtonsTypeComponent },
-    { name: 'image', component: ImageTypeComponent }
+    { name: 'image', component: ImageTypeComponent },
+    { name: 'gallery', component: GalleryTypeComponent },
   ],
   wrappers: [{ name: 'form-field', component: FormFieldTypeComponent }],
   validators: [
     { name: 'email', validation: CustomEmailValidator },
     {
       name: 'url',
-      validation: UrlValidator
-    }
+      validation: UrlValidator,
+    },
   ],
   validationMessages: [
     { name: 'required', message: 'This field is required' },
     { name: 'email', message: 'Please enter a valid Email' },
-    { name: 'url', message: 'Please enter a valid URL' }
+    { name: 'url', message: 'Please enter a valid URL' },
     /*
     {
       name: 'min',
@@ -132,5 +134,5 @@ export const config = {
     },
     */
   ],
-  extras: { lazyRender: true }
+  extras: { lazyRender: true },
 };
