@@ -1,6 +1,5 @@
 @import "../styles/core/variables";
 @import "../styles/globals";
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons+Outlined';
 
 
 .am-form-wrapper{
@@ -44,7 +43,4 @@
   .am-form-actions {
     margin-top: calc(#{$field-spacing} * 2);
   }
-}
-.material-icons-outlined{
-  font-size: 1.3em;
 }

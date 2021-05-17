@@ -1,0 +1,20 @@
+<div class="gallery-wrapper">
+  <div class="gallery" #gallery>
+    <ng-container *ngFor="let image of to.images">
+      <div
+        [ngStyle]="{
+          'background-image': 'url(' + image.value + ')'
+        }"
+        class="image"
+      >
+        <img [src]="image.value" style="visibility: hidden; width: 100%;" />
+      </div>
+    </ng-container>
+  </div>
+  <span class="gallery-control prev" (click)="siema.prev()">
+    <svg-icon>arrow_back_ios</svg-icon>
+  </span>
+  <span class="gallery-control next" (click)="siema.next()">
+    <svg-icon>arrow_forward_ios</svg-icon>
+  </span>
+</div>

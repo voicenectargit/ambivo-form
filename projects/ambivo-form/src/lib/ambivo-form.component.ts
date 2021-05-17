@@ -62,7 +62,7 @@ export class AmbivoFormComponent implements OnChanges {
     this.isLoading = true;
 
     this.widgetService
-      .executeWidget(widget, this.model)
+      .executeWidget(widget, this.model, this.token)
       .pipe(take(1))
       .subscribe(() => this.onSuccess(widget))
       .add(() => (this.isLoading = false));

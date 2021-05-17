@@ -1,14 +1,16 @@
 {
   "name": "@voicenectargit/ambivo-form",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "peerDependencies": {
     "@angular/common": "^10.0.14",
     "@angular/core": "^10.0.14",
     "@ngx-formly/core": "^5.10.18",
     "flatpickr": "^4.6.9",
-    "ng2-currency-mask": "^11.0.0"
+    "ng2-currency-mask": "^11.0.0",
+    "siema": "^1.5.1"
   },
   "dependencies": {
+    "siema": "^1.5.1",
     "tslib": "^2.0.0"
   },
   "repository": {
