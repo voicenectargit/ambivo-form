@@ -120,7 +120,6 @@ export const config = {
     { name: 'required', message: 'This field is required' },
     { name: 'email', message: 'Please enter a valid Email' },
     { name: 'url', message: 'Please enter a valid URL' },
-    /*
     {
       name: 'min',
       message: (_, f) => `Minimum is ${f.templateOptions.min}`,
@@ -137,7 +136,7 @@ export const config = {
       name: 'maxlength',
       message: (_, f) => `Maximum length is ${f.templateOptions.maxLength}`,
     },
-    */
   ],
   extras: { lazyRender: true },
 };
+

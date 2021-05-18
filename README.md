@@ -9,3 +9,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `projects/ambivo-form-element` is an Angular Elements wrapper over the `ambivo-form` component.
 - `projects/ambivo-form-showcase` is a host-project for developing the library.
 
+## Build and deploy
+
+```
+# Build library and element
+npm run build
+
+# Deploy element
+firebase deploy
+
+# Publish library
+# (don't forget to udate version number under projects/ambivo-form/package.json)
+cd ./dist/ambivo-form
+npm pack
+
+# `--ignore-scripts` flag is important because we publish an Ivy build
+npm publish --ignore-scripts
+```
