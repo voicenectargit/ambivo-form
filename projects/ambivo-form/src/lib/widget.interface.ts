@@ -12,7 +12,7 @@ export interface WidgetInterface {
     submit: string;
     message?: string;
     redirect_url?: string;
-    actions?: string[];
+    action_list?: string[];
     multistep?: boolean;
     fields: FormlyFieldConfig[];
     theme?: any;

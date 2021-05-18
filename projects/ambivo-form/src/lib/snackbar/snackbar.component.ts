@@ -28,7 +28,7 @@ export class SnackbarComponent implements OnInit, AfterViewInit {
     // Default options
     const defaults: SnackbarOptionsInterface = {
       type: 'info',
-      timeout: 3000,
+      timeout: 6000,
     };
 
     this.options = { ...defaults, ...(this.options || {}) };

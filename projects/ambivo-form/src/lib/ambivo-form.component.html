@@ -35,7 +35,7 @@
             class="am-button"
             (click)="submit(widget)"
             [disabled]="!widget.id || !form.valid || isLoading"
-            *ngIf="!data.multistep"
+            *ngIf="!data.multistep && data.action_list?.length"
           >
             {{ data.submit }}
           </button>

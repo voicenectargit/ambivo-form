@@ -9,6 +9,7 @@ import {
 import { SnackbarComponent } from './snackbar.component';
 import { take } from 'rxjs/operators';
 import { SnackbarOptionsInterface } from './snackbar-options.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class SnackbarService {
     private injector: Injector
   ) {}
 
-  show(text: string, options?: SnackbarOptionsInterface): void {
+  show(text: string, options?: SnackbarOptionsInterface): Observable<any> {
     // 1. Create a component reference from the component
     const componentRef = this.componentFactoryResolver
       .resolveComponentFactory(SnackbarComponent)
@@ -40,9 +41,9 @@ export class SnackbarService {
     document.body.appendChild(domElem);
 
     // 5. Destroy component
-    componentRef.instance.destroy
-      .pipe(take(1))
-      .subscribe(() => this.destroy(componentRef));
+    const destroy$ = componentRef.instance.destroy;
+    destroy$.pipe(take(1)).subscribe(() => this.destroy(componentRef));
+    return destroy$;
   }
 
   destroy(componentRef: ComponentRef<SnackbarComponent>): void {

@@ -73,10 +73,7 @@ export class AmbivoFormComponent implements OnChanges {
     if (widget.body.redirect_url) {
       window.location.replace(widget.body.redirect_url);
     } else {
-      this.snackarService.show(widget.body?.message, {
-        title: 'Submitted!',
-        type: 'success',
-      });
+      this.snackarService.show(widget.body?.message, { type: 'success' });
     }
   }
 }

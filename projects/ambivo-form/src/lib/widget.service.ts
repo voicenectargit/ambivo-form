@@ -69,7 +69,7 @@ export class WidgetService {
     const defaults = 'Something went wrong';
     const msg = typeof error === 'string' ? error : error?.message || defaults;
 
-    this.snackarService.show(msg, { title: 'Error', type: 'error' });
+    this.snackarService.show(msg, { type: 'error' });
     return throwError(error);
   }
 }
