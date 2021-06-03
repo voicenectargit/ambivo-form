@@ -18,6 +18,7 @@ import { GalleryTypeComponent } from './types/gallery-type/gallery-type.componen
 import { MulticheckboxTypeComponent } from './types/multicheckbox-type/multicheckbox-type.component';
 import { HiddenTypeComponent } from './types/hidden-type/hidden-type.component';
 import { VideoTypeComponent } from './types/video-type/video-type.component';
+import { AudioTypeComponent } from './types/audio-type/audio-type.component';
 
 export const config = {
   types: [
@@ -110,6 +111,7 @@ export const config = {
     { name: 'image', component: ImageTypeComponent },
     { name: 'gallery', component: GalleryTypeComponent },
     { name: 'video', component: VideoTypeComponent },
+    { name: 'audio', component: AudioTypeComponent },
     { name: 'hidden', component: HiddenTypeComponent },
   ],
   wrappers: [{ name: 'form-field', component: FormFieldTypeComponent }],

@@ -1,0 +1,11 @@
+@import "../../../styles/core/variables";
+:host{
+  padding: $field-spacing 0;
+  display: block;
+}
+
+audio {
+  width: 100%;
+  max-width: 100%;
+  outline: none!important;
+}

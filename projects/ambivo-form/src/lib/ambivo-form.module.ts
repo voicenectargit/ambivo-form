@@ -28,6 +28,7 @@ import { GalleryTypeComponent } from './types/gallery-type/gallery-type.componen
 import { MulticheckboxTypeComponent } from './types/multicheckbox-type/multicheckbox-type.component';
 import { HiddenTypeComponent } from './types/hidden-type/hidden-type.component';
 import { VideoTypeComponent } from './types/video-type/video-type.component';
+import { AudioTypeComponent } from './types/audio-type/audio-type.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { VideoTypeComponent } from './types/video-type/video-type.component';
     HiddenTypeComponent,
     VideoTypeComponent,
     SafeHtmlPipe,
+    AudioTypeComponent,
   ],
   imports: [
     CommonModule,
