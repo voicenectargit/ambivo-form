@@ -12,7 +12,6 @@ export class GtagService {
     if ('gtag' in window) {
       this.gtag = window['gtag'];
     }
-    console.log('gtag instance', this.gtag);
   }
 
   set(params: any): void {
@@ -23,20 +22,17 @@ export class GtagService {
     return new Observable((observer) => {
       try {
         const tmr = setTimeout(() => {
-          console.log('Conversion fails (code 2)');
           observer.next();
         }, 10000);
 
         this.gtag('event', action, {
           ...params,
           event_callback: () => {
-            console.log('Conversion success');
             clearTimeout(tmr);
             observer.next();
           },
         });
       } catch (e) {
-        console.log('Conversion fails (code 2)');
         observer.next();
       }
     });
