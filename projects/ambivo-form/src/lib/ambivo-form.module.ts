@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormlyModule } from '@ngx-formly/core';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
+import { SafeHtmlPipe } from './utils/safe-html.pipe';
 import { AmbivoFormComponent } from './ambivo-form.component';
 import { StepperTypeComponent } from './types/stepper-type/stepper-type.component';
 import { InputTypeComponent } from './types/input-type/input-type.component';
@@ -25,6 +26,8 @@ import { StepTypeComponent } from './types/step-type/step-type.component';
 import { ImageTypeComponent } from './types/image-type/image-type.component';
 import { GalleryTypeComponent } from './types/gallery-type/gallery-type.component';
 import { MulticheckboxTypeComponent } from './types/multicheckbox-type/multicheckbox-type.component';
+import { HiddenTypeComponent } from './types/hidden-type/hidden-type.component';
+import { VideoTypeComponent } from './types/video-type/video-type.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { MulticheckboxTypeComponent } from './types/multicheckbox-type/multichec
     ImageTypeComponent,
     GalleryTypeComponent,
     MulticheckboxTypeComponent,
+    HiddenTypeComponent,
+    VideoTypeComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     CommonModule,

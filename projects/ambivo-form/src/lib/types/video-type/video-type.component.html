@@ -1,0 +1,13 @@
+<ng-container [ngSwitch]="to?.source_type">
+  <ng-container *ngSwitchCase="'iframe'">
+    <div
+      class="iframe-container ratio_{{ to?.iframe_ratio }}"
+      [innerHtml]="to.source_iframe | safeHtml"
+    ></div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'url'">
+    <video controls>
+      <source [src]="to.source_url" />
+    </video>
+  </ng-container>
+</ng-container>

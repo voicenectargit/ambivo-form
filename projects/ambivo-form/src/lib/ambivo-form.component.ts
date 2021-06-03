@@ -13,13 +13,14 @@ import {
   ConfigOption,
 } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { take, switchMap } from 'rxjs/operators';
 
 import { config } from './config';
 import { SnackbarService } from './snackbar/snackbar.service';
 import { WidgetInterface } from './widget.interface';
 import { WidgetService } from './widget.service';
+import { GtagService } from './gtag/gtag.service';
 
 const providers = FormlyModule.forRoot(config).providers;
 @Component({
@@ -41,6 +42,7 @@ export class AmbivoFormComponent implements OnChanges {
   constructor(
     private widgetService: WidgetService,
     private snackarService: SnackbarService,
+    private gtagService: GtagService,
     @Inject(FormlyConfig) formlyConfig: FormlyConfig,
     @Inject(FORMLY_CONFIG) formlyConfigOptions: ConfigOption[]
   ) {
@@ -63,7 +65,16 @@ export class AmbivoFormComponent implements OnChanges {
 
     this.widgetService
       .executeWidget(widget, this.model, this.token)
-      .pipe(take(1))
+      .pipe(
+        switchMap(() => {
+          if (widget.body.gConversion) {
+            const { gConversionId, gConversionLabel } = widget.body;
+            return this.gtagService.conversion(gConversionId, gConversionLabel);
+          }
+          return of(true);
+        }),
+        take(1)
+      )
       .subscribe(() => this.onSuccess(widget))
       .add(() => (this.isLoading = false));
   }
@@ -72,8 +83,8 @@ export class AmbivoFormComponent implements OnChanges {
     this.form.reset();
     if (widget.body.redirect_url) {
       window.location.replace(widget.body.redirect_url);
-    } else {
-      this.snackarService.show(widget.body?.message, { type: 'success' });
+    } else if (widget.body.message) {
+      this.snackarService.show(widget.body.message, { type: 'success' });
     }
   }
 }

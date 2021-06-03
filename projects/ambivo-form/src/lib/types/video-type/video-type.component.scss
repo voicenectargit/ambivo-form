@@ -1,0 +1,40 @@
+@import "../../../styles/core/variables";
+:host{
+  padding: $field-spacing 0;
+  display: block;
+}
+
+video {
+  width: 100%;
+  max-width: 100%;
+}
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  width: 100%;
+  &.ratio_16x9 {
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+  &.ratio_4x3 {
+    padding-top: 75%; /* 4:3 Aspect Ratio */
+  }
+  &.ratio_3x2 {
+    padding-top: 66.66%; /* 3:2 Aspect Ratio */
+  }
+  &.ratio_8x5 {
+    padding-top: 62.5%; /* 8:5 Aspect Ratio */
+  }
+  &.ratio_1x1 {
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+  }
+  ::ng-deep iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

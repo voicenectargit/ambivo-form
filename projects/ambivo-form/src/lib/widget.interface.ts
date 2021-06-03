@@ -17,5 +17,8 @@ export interface WidgetInterface {
     fields: FormlyFieldConfig[];
     theme?: any;
     logo?: string;
+    gConversion?: boolean;
+    gConversionId?: string;
+    gConversionLabel?: string;
   };
 }
